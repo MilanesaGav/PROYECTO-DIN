@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Menú lateral con iFrame</title>
+  <style>
+    body {
+      color:antiquewhite;
+      background-color: rgb(72, 20, 121);
+      margin: 0;
+    }
+    a{
+      padding-left: 15px;
+      color: antiquewhite;
+      font-size:20px;
+    }
+    nav {
+      position: fixed;
+      width: 130px;
+      height: 100vh;
+      background-color: #333;
+    }
+    iframe {
+    margin-left: 130px;
+    width: calc(100% - 130px);
+    height: 100vh;
+    border: none;    /* Quita el borde gris por defecto del iframe */
+    display: block;  /* Evita espacios en blanco extra en la base */
+}
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="bienvenido.html" target="contenido">MENU</a><br>
+    <br>
+    <a href="form.php" target="contenido">Agregar</a><br>
+    <br>
+    <a href="borrartd.php" target="contenido">Borrar td</a><br>
+    <br>
+    <a href="tabla.php" target="contenido">mostrar tabla</a><br>
+    <br>
+    <a href="tablauno.php" target="contenido">Buscar x id</a><br>
+    <br>
+    <a href="borraruno.php" target="contenido">Borrar x id</a><br>
+    <br>
+    <a href="cuenta.php" target="contenido">Tu cuenta</a><br>
+    <br>
+    <a href="img.php" target="contenido">imagen(??</a><br>
+    <br>
+    <a href="formimg.php" target="contenido">Form img</a><br>
+
+    
+
+  </nav>
+ 
+  <iframe name="contenido" src="bienvenido.html"></iframe>
+</body>
+</html>
