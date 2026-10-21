@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login page</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      background: #f5f9ff
+;
+      color: #102a43
+;
+    }
+
+    .login-page {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      background: #ffffff
+;
+    }
+
+    .intro {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 80px;
+      overflow: hidden;
+      background: linear-gradient(145deg, #0d47a1
+, #1976d2
+);
+      color: white;
+    }
+
+    .intro::before,
+    .intro::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .intro::before {
+      width: 360px;
+      height: 360px;
+      right: -120px;
+      top: -100px;
+    }
+
+    .intro::after {
+      width: 260px;
+      height: 260px;
+      left: -100px;
+      bottom: -80px;
+    }
+
+    .intro-content {
+      position: relative;
+      z-index: 1;
+      max-width: 500px;
+    }
+
+    .eyebrow {
+      margin-bottom: 24px;
+      font-size: 15px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      opacity: 0.8;
+    }
+
+    .intro h1 {
+      margin-bottom: 18px;
+      font-size: clamp(42px, 5vw, 76px);
+      line-height: 0.98;
+    }
+
+    .intro p {
+      max-width: 390px;
+      font-size: 18px;
+      line-height: 1.6;
+      opacity: 0.9;
+    }
+
+    .login-section {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 24px;
+      background: #ffffff
+;
+    }
+
+    .login-card {
+      width: 100%;
+      max-width: 430px;
+    }
+
+    .brand {
+      margin-bottom: 56px;
+      color: #1976d2
+;
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    .login-card h2 {
+      margin-bottom: 10px;
+      color: #102a43
+;
+      font-size: 38px;
+    }
+
+    .subtitle {
+      margin-bottom: 34px;
+      color: #718096
+;
+      line-height: 1.5;
+    }
+
+    .field {
+      margin-bottom: 22px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      color: #243b53
+;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    input {
+      width: 100%;
+      border: 1px solid #d9e2ec
+;
+      border-radius: 10px;
+      padding: 15px 16px;
+      outline: none;
+      color: #243b53
+;
+      font-size: 15px;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    input:focus {
+      border-color: #1976d2
+;
+      box-shadow: 0 0 0 3px rgba(25, 118, 210, 0.12);
+    }
+
+    .password-preview {
+      width: 100%;
+      border: 1px solid #d9e2ec
+;
+      border-radius: 10px;
+      padding: 15px 16px;
+      color: #9fb3c8
+;
+      font-size: 20px;
+      letter-spacing: 4px;
+    }
+
+    .options {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 4px 0 28px;
+      color: #718096
+;
+      font-size: 13px;
+    }
+
+    .remember {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .remember input {
+      width: auto;
+      accent-color: #1976d2
+;
+    }
+
+    .forgot {
+      color: #1976d2
+;
+      text-decoration: none;
+    }
+
+    .login-button {
+      width: 100%;
+      border: 0;
+      border-radius: 10px;
+      padding: 16px;
+      background: #1976d2
+;
+      color: white;
+      cursor: pointer;
+      font-size: 15px;
+      font-weight: 700;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .login-button:hover {
+      background: #0d47a1
+;
+      transform: translateY(-1px);
+    }
+
+    .message {
+      min-height: 22px;
+      margin-top: 16px;
+      color: #1976d2
+;
+      font-size: 14px;
+      text-align: center;
+    }
+
+    .footer {
+      margin-top: 54px;
+      color: #9fb3c8
+;
+      font-size: 13px;
+      text-align: center;
+    }
+
+    @media (max-width: 800px) {
+      .login-page {
+        grid-template-columns: 1fr;
+      }
+
+      .intro {
+        min-height: 360px;
+        padding: 48px 28px;
+      }
+
+      .intro h1 {
+        font-size: 48px;
+      }
+
+      .login-section {
+        padding: 48px 24px;
+      }
+
+      .brand {
+        margin-bottom: 36px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="login-page">
+    <section class="intro">
+      <div class="intro-content">
+        <div class="eyebrow">Smarter Control.</div>
+        <h1>Secure Access.</h1>
+        <p>Access Made Effortless</p>
+      </div>
+    </section>
+
+    <section class="login-section">
+      <div class="login-card">
+        <div class="brand">Wardiere Inc.</div>
+
+        <h2>Welcome Back!</h2>
+        <p class="subtitle">Enter your details to continue.</p>
+
+        <form id="demoForm">
+          <div class="field">
+            <label for="email">Email Address</label>
+            <input
+              id="email"
+              type="email"
+              placeholder="Enter your email"
+              autocomplete="off"
+            />
+          </div>
+
+          <div class="field">
+            <label>Password</label>
+            <div class="password-preview" aria-label="Campo de contraseña no funcional">
+              ••••••••
+            </div>
+          </div>
+
+          <div class="options">
+            <label class="remember">
+              <input type="checkbox" />
+              Remember me
+            </label>
+
+            <a class="forgot" href="#" onclick="return false;">
+              Forgot password?
+            </a>
+          </div>
+
+          <button class="login-button" type="submit">
+            Login
+          </button>
+
+          <div class="message" id="message"></div>
+        </form>
+
+        <div class="footer">
+          or continue with
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const form = document.getElementById("demoForm");
+    const email = document.getElementById("email");
+    const message = document.getElementById("message");
+
+    form.addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      if (!email.value.trim()) {
+        message.textContent = "Ingresa un correo para continuar.";
+        email.focus();
+        return;
+      }
+
+      message.textContent = "Esta es una demostración visual. No se inició sesión.";
+    });
+  </script>
+</body>
+</html>
