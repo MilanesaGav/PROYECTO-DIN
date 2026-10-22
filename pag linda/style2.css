@@ -25,6 +25,12 @@
    justify-content: center;
    align-items: center;
 }
+#FormInicioSesion {
+    display: flex;
+    flex-direction: column; /* Pone los elementos uno debajo del otro */
+    align-items: center;    /* Centra los elementos horizontalmente */
+   
+}
 
 #TituloForm{
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
