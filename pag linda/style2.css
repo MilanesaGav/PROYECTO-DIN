@@ -63,9 +63,8 @@
 }
 
 .botonsito:hover{
-    width: 12rem;
+    transform: scale(1.08);
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    height: 4rem;
     background: rgba(152, 47, 238, 0.84);
     box-shadow: 0 0 15px #8b36d5;
     font-size: 2rem;

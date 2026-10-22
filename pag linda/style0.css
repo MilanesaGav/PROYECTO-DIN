@@ -1,7 +1,17 @@
-body{
+/* Reseteo universal para evitar márgenes ocultos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
     background: #f2f0f2;
     background: linear-gradient(90deg,rgba(242, 240, 242, 0.94) 0%, rgba(172, 127, 235, 0.84) 53%, rgb(197, 118, 243) 100%);
+    overflow: hidden; /* Esto bloquea cualquier scroll accidental si la pantalla es muy chica */
 }
+
+
 
 main{
     display:flex;
@@ -25,6 +35,7 @@ main{
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 5em;
     text-shadow: 0 0 2px #212121;
+    margin-bottom: 3rem;
 }
 
 .boton{
@@ -38,9 +49,8 @@ main{
 }
 
 .boton:hover{
-    width: 15rem;
+    transform: scale(1.08);
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    height: 6rem;
     background: rgba(152, 47, 238, 0.84);
     box-shadow: 0 0 15px #8b36d5;
     font-size: 2rem;
