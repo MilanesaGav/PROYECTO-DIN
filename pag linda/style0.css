@@ -1,3 +1,15 @@
+/* estuve probando fuentes */
+@import url('https://fonts.cdnfonts.com/css/diavlo');
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap');
+
+/* Aplicamos Poppins al body y a los botones/enlaces para que no fallen */
+body, button, input, select, textarea, a {
+    font-family: 'Montserrat', sans-serif;
+       /* font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; <--- anterior*/
+}
+
 /* Reseteo universal para evitar márgenes ocultos */
 body {
     margin: 0;
@@ -5,7 +17,7 @@ body {
     box-sizing: border-box;
     background: linear-gradient(90deg,rgba(242, 240, 242, 0.94) 0%, rgba(172, 127, 235, 0.84) 53%, rgb(197, 118, 243) 100%);
     overflow: hidden; /* Esto bloquea cualquier scroll accidental si la pantalla es muy chica */
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+ 
 }
 
 main{
@@ -52,10 +64,10 @@ main{
 .botonera{
     display:flex;
     flex-direction: row;
+    flex-wrap: wrap;       /* <-- ¡Esto es lo que salva el diseño! Permite que bajen a la siguiente línea si no entran */
+    justify-content: center; /* <-- Centra los botones horizontalmente */
+    gap: 20px;             /* <-- Espacio prolijo entre botones (puedes sacar los margin-left/right de ContainerBoton si quieres) */
 }
 
-.ContainerBoton{
-    margin-left: 1rem;
-    margin-right: 1rem;
-}
+
 
