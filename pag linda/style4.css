@@ -1,13 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 #menu1{
-    align-items: center;
+    
     width: 30%;
     height: 100%;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    text-align: center;
     border-top-left-radius: 20px ;
     border-bottom-left-radius: 20px;
     background-color: rgb(122, 74, 190);
+    gap:20px;
 }
 
 #LienzoBlanco{
@@ -18,20 +21,16 @@
 
 #TituloAct{
     font-size: 3em;
+    color:rgb(32, 10, 49);
 }
 
-ul li::marker {
-    content: "➔ "; /* O cualquier flecha: ➔, ➜, ➤, 🠲, 🠶 */
-    color: #f1f0f3; /* Puedes darle el color que quieras a la flechita */
-    font-size: 1.2rem; /* Y ajustar su tamaño */
+/* LA COPIA */
+.botonsito:hover{
+    transform: scale(1.08);
+    background: rgba(27, 2, 48, 0.84);
+    box-shadow: 0 0 15px #1b0330;
+    font-size: 2rem;
+    color:rgb(220, 187, 246);
+
 }
 
-a {
-    color: inherit;      /* Hereda exactamente el mismo color del texto que lo rodea */
-    text-decoration: none; /* (Opcional) Le saca la línea subrayada de abajo */
-    font-size:2rem ;
-}
-
-a:hover{
-    color:aquamarine;
-}
