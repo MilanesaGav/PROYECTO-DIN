@@ -55,7 +55,7 @@
 
 /* Dorso */
 .tarjeta-back {
-    background: #0d0d2b;
+    background: #330647;
     color: white;
     transform: rotateY(180deg);
     flex-direction: column;
