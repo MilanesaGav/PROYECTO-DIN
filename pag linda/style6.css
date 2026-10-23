@@ -5,7 +5,10 @@
     width: 100%;
     height: 100%;
 }
-
+#TituloAct{
+    font-size: 3em;
+    color:rgb(32, 10, 49);
+}
 #menu1 {
     width: 25%;
     height: 100%;
