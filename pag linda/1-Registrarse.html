@@ -5,30 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style0.css">
-    <link rel="stylesheet" href="style1.css">
+    <link rel="stylesheet" href="style2.css">
     
 </head>
 <body>
     <main>
         <div id="principal">
-            <div id="ContainerForm">
-                <form id="formReg">
-                    <div id="ContainerNombre">
-                        <div id="ej"></div>
-                        <input id="inputNombre" placeholder="Ingrese nombre"></input>
-                    </div>
-                    <div id="ContainerDatos">
-                        <label>Ingrese Edad: </label><br>
-                        <input placeholder="Ej: 17.. ">
-                        <label>Ingrese Curso </label><br>
-                        <input placeholder="Ej: 6°4° ">
-                        <label>Ingrese </label><br>
-                        <input placeholder="Ingrese ">
-                        <label>Ingrese </label><br>
-                        <input placeholder="Ingrese ">
-                    </div>
-                </form>
+            <div id="horizontal">
+                <div  id="parte1" class="containerDos">
+
+                </div>
+
+                <div id="parte2" class="containerDos">
+                    <form id="FormInicioSesion">
+                        <p id="TituloForm">Registro</p>
+                        <label class="LabelForm"> Nombre </label> <br>
+                        <input class="InputForm" placeholder="nombre"> <br> <br>
+                        <label class="LabelForm"> Contraseña </label> <br>
+                        <input class="InputForm" placeholder="contraseña"> <br> <br>
+                        <!-- POR AHORA le pongo el coso de script ese, pero hay q sacarlo (hay q ponerle esto dsps: type="submit")-->
+                        <button class="botonsito" type="button" onclick="window.location.href='3-MenuPrincipal.html'">Empezar</button>
+                    </form> 
+                    
+                </div>
             </div>
+            
+
+            
             
         </div>
     </main>
