@@ -10,7 +10,7 @@
     border-top-left-radius: 20px ;
     border-bottom-left-radius: 20px;
     background-color: rgb(122, 74, 190);
-    gap:20px;
+    gap:30px;
 }
 
 #LienzoBlanco{
@@ -23,8 +23,11 @@
     font-size: 3em;
     color:rgb(32, 10, 49);
 }
+/* LAS COPIAS */
+.botonsito{
+    width:15rem;
+}
 
-/* LA COPIA */
 .botonsito:hover{
     transform: scale(1.08);
     background: rgba(27, 2, 48, 0.84);
