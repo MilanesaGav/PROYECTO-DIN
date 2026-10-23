@@ -1,72 +1,75 @@
-/* no hay pq para la pag 3 se reutilizó code (AL FINAL SI USE PERDON) */
-.btnmisiones { /* El botón de la misión o la imagen dentro de la tarjeta. */
-  width: 100%; /* Ocupa el 100% del ancho del contenedor de la tarjeta. */
-  height: 70vh; /* Altura del 70% del viewport (probablemente demasiado grande para una tarjeta, puede ser un error tipográfico o intencional). */
-  object-fit: cover; /* Recorta la imagen para que cubra todo el espacio sin distorsionarse. */
-  border-radius: 10px; /* Bordes redondeados. */
-  transition: transform 0.3s ease; /* Transición suave de 0.3s para el efecto de transformación (hover). */
-  padding: auto; /* Padding automático (esta propiedad no es válida para padding, pero no afecta la visualización). */
+/* Distribución de las tarjetas */
+.botonera {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
 }
 
-.btnmisiones:hover { /* Estilo al pasar el mouse (hover) sobre el botón. */
-  transform: scale(1.05); /* Aumenta el tamaño del botón/imagen en un 5% para un efecto visual. */
+/* Tamaño de las tarjetas */
+.tarjeta {
+    width: 180px;
+    height: 150px;
+    perspective: 1000px;
+    text-decoration: none;
+    display: block;
 }
 
-.tarjeta h3 { /* Título h3 dentro de la tarjeta (se posiciona sobre la imagen). */
-  position: relative; /* Posicionamiento relativo, se desplaza desde su posición normal. */
-  bottom: 10vh; /* Desplaza el título 10vh hacia arriba desde la parte inferior de su posición normal. */
-  left: 0; /* Alineado a la izquierda de su posición normal. */
-  margin: 0; /* Elimina el margen. */
-  width: 100%; /* Ocupa el 100% del ancho. */
-  color: white; /* Color del texto: blanco. */
-  font-size: 1.5rem; /* Tamaño de fuente. */
-  text-align: center; /* Centra el texto. */
+/* Elemento que gira */
+.tarjeta-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
 }
 
-.tarjeta { /* Estilos para el contenedor de cada tarjeta, que podría tener un efecto 3D. */
-  width: 250px; /* Ancho fijo de la tarjeta. */
-  height: 350px; /* Altura fija de la tarjeta. */
-  perspective: 1000px; /* Establece la perspectiva para un efecto 3D (para las animaciones de giro). */
-  text-decoration: none; /* Elimina el subrayado. */
-  display: inline-block; /* Se comporta como un bloque pero permite elementos en línea a su lado. */
+/* Giro */
+.tarjeta:hover .tarjeta-inner,
+.tarjeta:focus .tarjeta-inner {
+    transform: rotateY(180deg);
 }
 
-.tarjeta-inner { /* Contenedor interno que se rota para el efecto 3D. */
-  position: relative; /* Posicionamiento relativo. */
-  width: 100%; /* Ocupa el 100% del ancho de la tarjeta. */
-  height: 100%; /* Ocupa el 100% de la altura de la tarjeta. */
-  text-align: center; /* Centra el texto. */
-  transition: transform 0.8s; /* Transición suave de 0.8s para la rotación. */
-  transform-style: preserve-3d; /* Permite que los elementos 3D anidados se rendericen correctamente. */
+/* Ambas caras */
+.tarjeta-front,
+.tarjeta-back {
+    position: absolute;
+    inset: 0;
+    box-sizing: border-box;
+    border-radius: 15px;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
 }
 
-.tarjeta:hover .tarjeta-inner { /* Estilo al pasar el mouse sobre la tarjeta, activa la rotación. */
-  transform: rotateY(180deg); /* Rota el contenedor interno 180 grados en el eje Y (efecto de giro). */
+/* Frente */
+.tarjeta-front {
+    background: #d9c1eb;
+    color: black;
 }
 
-.tarjeta-front, .tarjeta-back { /* Caras frontal y trasera de la tarjeta. */
-  position: absolute; /* Posicionamiento absoluto para superponer las caras. */
-  width: 100%; /* Ocupa el 100% del ancho. */
-  height: 100%; /* Ocupa el 100% de la altura. */
-  backface-visibility: hidden; /* Oculta la parte trasera de un elemento al girar (importante para el efecto 3D). */
-  border-radius: 10px; /* Bordes redondeados. */
-  overflow: hidden; /* Oculta el contenido que se salga. */
-  box-shadow: 0 4px 8px rgba(0,0,0,0.3); /* Sombra de caja. */
-  display: flex; /* Habilita Flexbox. */
-  flex-direction: column; /* Organiza los elementos en columna. */
-  align-items: center; /* Centra el contenido horizontalmente. */
-  justify-content: center; /* Centra el contenido verticalmente. */
+/* Dorso */
+.tarjeta-back {
+    background: #0d0d2b;
+    color: white;
+    transform: rotateY(180deg);
+    flex-direction: column;
+    overflow-y: auto;
 }
 
-.tarjeta-front { /* Estilos específicos de la cara frontal. */
-  background: white; /* Fondo blanco. */
+.tarjeta-front h3,
+.tarjeta-back h3 {
+    font-size: 1rem;
+    margin: 0 0 8px;
 }
 
-.tarjeta-back { /* Estilos específicos de la cara trasera. */
-  background: #0d0d2b; /* Fondo azul muy oscuro. */
-  color: white; /* Texto blanco. */
-  transform: rotateY(180deg); /* Rota 180 grados para que inicialmente esté oculta. */
-  padding: 20px; /* Relleno interno. */
-  overflow-y: auto; /* Habilita el scroll vertical si el contenido es demasiado largo. */
-  justify-content: flex-start; /* Alinea el contenido al inicio (arriba). */
+.tarjeta-back p {
+    font-size: 0.85rem;
+    margin: 0;
+    line-height: 1.4;
 }
