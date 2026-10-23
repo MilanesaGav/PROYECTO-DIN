@@ -1,0 +1,110 @@
+/* --- Reseteo básico y tipografía --- */
+body, input, button, a, label {
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background: linear-gradient(90deg, rgba(242, 240, 242, 0.94) 0%, rgba(172, 127, 235, 0.84) 53%, rgb(197, 118, 243) 100%);
+    overflow: hidden;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* --- Caja contenedora principal --- */
+#principal {
+    height: 80dvh;
+    width: 80dvw;
+    background-color: azure;
+    display: flex;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+/* --- Estructura de pantalla dividida --- */
+#horizontal {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+/* --- Panel izquierdo (Menú Violeta - 30%) --- */
+#menu1 {
+    width: 30%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; /* <--- CORREGIDO: Empieza desde arriba */
+    padding: 30px 15px;          /* <--- Espacio superior e interno */
+    box-sizing: border-box;
+    background-color: rgb(122, 74, 190);
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    overflow-y: auto;
+}
+
+/* --- Estilo del Título del Menú --- */
+#TituloAct {
+    font-size: 1.6rem;           /* Tamaño adaptado para que entre bien */
+    color: white;
+    text-align: center;
+    margin-bottom: 25px;         /* Espacio entre el título y el formulario */
+    font-weight: 600;
+}
+
+/* --- Panel derecho (Lienzo / Iframe - 70%) --- */
+#LienzoBlanco {
+    width: 70%;
+    height: 100%;
+    border: none;
+    background-color: #ffffff;
+}
+
+/* --- Etiquetas e Inputs --- */
+.LabelForm {
+    font-size: 0.95rem;
+    color: #ffffff;
+    align-self: flex-start; /* Alinea la etiqueta a la izquierda */
+    margin-left: 5%;
+    margin-bottom: 5px;
+}
+
+.InputForm {
+    width: 60%;
+    height: 3.2em;
+    border: 2px solid aliceblue;
+    border-radius: 20px;
+    padding: 0 12px;
+    box-sizing: border-box;
+    outline: none;
+    margin-bottom: 15px; /* Espacio prolijo en lugar de tantos <br> */
+}
+
+/* --- Botón Enviar --- */
+.botonsito {
+    width: 9rem;
+    height: 2.8rem;
+    font-size: 1.2rem;
+    border-radius: 15px;
+    border: 0px;
+    background-color: rgb(216, 195, 235);
+    cursor: pointer;
+    margin-top: 10px;
+    transition: all 0.3s ease;
+}
+
+.botonsito:hover {
+    transform: scale(1.08);
+    background: rgba(152, 47, 238, 0.84);
+    box-shadow: 0 0 15px #8b36d5;
+    color: white;
+}
