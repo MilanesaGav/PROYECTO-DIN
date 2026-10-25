@@ -12,7 +12,7 @@
 
 #modal{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     width:50vw;
     height:40vh;
     background-color:rgb(247, 247, 248);
@@ -24,11 +24,21 @@
     align-items: center;
 }
 
+#ParteModal{
+    display: flex;
+    flex-direction: row;
+    width:40vw;
+    height:30vh ;
+    gap:10px;
+}
+
 /*css sabe q cuando decis 'weigth : 30%' te referis al 30% del ancho del padre y no al alto*/
 .ContainerSelector{
-    width:40% ; /*30 porciento del ancho del padre*/
-    height: 30%; /* 30 porciento del alto del padre*/
+    width:50% ; /*30 porciento del ancho del padre*/
+    height: 90%; /* 30 porciento del alto del padre*/
     border:2px solid rgb(191, 188, 188);
     border-radius:5px ;
     /*  grosor estilo color*/
 }
+
+
