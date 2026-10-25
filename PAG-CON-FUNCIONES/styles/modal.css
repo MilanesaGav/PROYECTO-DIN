@@ -1,0 +1,14 @@
+#FondoModal{
+    width:100vw;
+    height: 100vh;
+    display: none; /*esta "none" x defecto, para q despues con js volverlo visible*/
+    flex-direction: row;
+    background-color: rgb(0, 0, 0);
+    opacity: 30%;
+    position: fixed;
+}
+
+/* width:100vh;
+    height: 100vw; 
+    PARA EL COSO, EL CUADRADO DEL MODAL
+    */

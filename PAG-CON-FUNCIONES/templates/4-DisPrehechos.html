@@ -6,7 +6,8 @@
     <title>Document</title>
     <link rel="stylesheet" href="../styles/style0.css"> 
     <link rel="stylesheet" href="../styles/style2.css">
-    <link rel="stylesheet" href="../styles/style4.css">  
+    <link rel="stylesheet" href="../styles/style4.css">
+    <link rel="stylesheet" href="../styles/modal.css">    
 </head>
 <body>
     <main>
@@ -20,17 +21,23 @@
                     <button class="botonsito" onclick="window.open('../php/1-DiseñosPrehechos/d4.php', 'lienzo')">Diseño 4</button>
                     <button class="botonsito" onclick="window.open('../php/1-DiseñosPrehechos/d5.php', 'lienzo')">Diseño 5</button>
                     <button class="botonsito" onclick="window.open('../php/1-DiseñosPrehechos/d6.php', 'lienzo')">Diseño 6</button>
+                    <button class="botonsito" onclick="window.open('../php/1-DiseñosPrehechos/d6.php', 'lienzo')">colores</button>
                     <button class="botonsito" onclick="window.location.href='3-MenuPrincipal.html'"><-- Anterior</button>
                 </div>
 
-                <iframe name="lienzo" id="LienzoBlanco" > </iframe>
+                <iframe name="lienzo" id="LienzoBlanco" >
+                    <!-- la pantalla en blanco, "el pizarron" donde se ponen los dibujos -->
+                </iframe>
                  
             </div>
-            
-
-            
-            
         </div>
+            <div id="FondoModal"> <!-- contenedor q pone oscura la pantalla -->
+            
+            </div>
+        
+
     </main>
+    <!-- Intento de modal (lo saco afuera del "div principal" pq necesito q vaya afuera de todo) -->
+   
 </body>
 </html>
