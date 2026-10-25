@@ -1,7 +1,7 @@
 <?php
 //hojas de funciones
 // include("reng.php");
-include("circle.php");
+include("figuras.php");
 
 //crea img con color )cddo)
 $imagen = imageCreate(600,600);imageColorAllocate($imagen,222,0,0);
