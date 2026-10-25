@@ -108,3 +108,48 @@ main {
     box-shadow: 0 0 15px #8b36d5;
     color: white;
 }
+
+/* --- Cabecera centrada en columna (como en la imagen) --- */
+.menu-top {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 25px;
+}
+
+/* --- Título grande y centrado --- */
+#TituloAct {
+    font-size: 1.5rem;
+    color: white;
+    font-weight: 600;
+    margin-bottom: 15px; /* Separa prolijamente el título del botón */
+}
+
+/* --- Botón estilizado abajo del título --- */
+.btn-color-chiquito {
+    background-color: #d6b8f5; /* Tono lila claro muy combinable */
+    border: none;
+    border-radius: 14px;
+    padding: 10px 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    transition: all 0.2s ease;
+}
+
+/* El tamaño y color del icono de la paleta */
+.btn-color-chiquito i {
+    font-size: 1.4rem;
+    color: #4a2c6d;    /* Tono oscuro para buen contraste */
+}
+
+/* Efecto hover suave */
+.btn-color-chiquito:hover {
+    background-color: #c49ee6;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}

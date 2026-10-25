@@ -1,12 +1,11 @@
 <?php
 // Función 1: Dibuja un cuadrado base
-function cul($imagen, $tam, $x_m, $y_m) {
-    $color = imageColorAllocate($imagen, 128, 0, 128);
+function cul($imagen, $tam, $x_m, $y_m, $color) {
     imagerectangle($imagen, $x_m - $tam, $y_m - $tam, $x_m + $tam, $y_m + $tam, $color);
 }
 
 // Función 2: Grilla de cuadrados centrada con espacios
-function cu2($imagen, $tam, $x_m, $y_m) {
+function cu2($imagen, $tam, $x_m, $y_m, $color) {
     $espacio = 15;
     $ancho_total_figura = ($tam * 2) + $espacio;
     $ancho_grilla = (3 * $ancho_total_figura) - $espacio;
@@ -25,7 +24,7 @@ function cu2($imagen, $tam, $x_m, $y_m) {
 }
 
 // Función 3: Diagonales simétricas centradas en forma de X
-function cu3($imagen, $tam) {
+function cu3($imagen, $tam, $color) {
     $espacio = 15;
     $paso = ($tam * 2) + $espacio;
     $ancho = imagesx($imagen);
@@ -48,40 +47,40 @@ function cu3($imagen, $tam) {
 }
 
 // Función 4: Cuadrados concéntricos (creciendo desde el centro)
-function c4($imagen, $tam) {
+function c4($imagen, $tam, $color) {
     $x_m = 300;
     $y_m = 300;
     for ($i = 0; $i < 5; $i++) {
-        cul($imagen, $tam, $x_m, $y_m);
+        cul($imagen, $tam, $x_m, $y_m, $color);
         $tam = $tam + 50;
     }
 }
 
 // Función 5: Cuadrados en fila horizontal con crecimiento y espacio
-function c5($imagen, $tam) {
+function c5($imagen, $tam, $color) {
     $x_m = 50;
     $y_m = 300;
     for ($i = 0; $i < 4; $i++) {
-        cul($imagen, $tam, $x_m, $y_m);
+        cul($imagen, $tam, $x_m, $y_m, $color);
         $tam = $tam + 5;
         $x_m = $x_m + ($tam * 2) + 10;
     }
 }
 
 // Función 6: Anillo de cuadrados distribuidos en circunferencia (8 elementos)
-function c6($imagen, $tam, $x_m, $y_m) {
+function c6($imagen, $tam, $x_m, $y_m, $color) {
     $cantidad = 8;
     for ($ang = 0; $ang < $cantidad; $ang++) {
         $tam2 = 20; 
         $angulo_rad = ($ang * 2 * M_PI) / $cantidad;
         $x = sin($angulo_rad) * $tam + $x_m;
         $y = cos($angulo_rad) * $tam + $y_m;
-        cul($imagen, $tam2, $x, $y);
+        cul($imagen, $tam2, $x, $y, $color);
     }
 }
 
 // Función 7: Perímetro de cuadrados
-function c7($imagen, $tam, $x_m, $y_m) {
+function c7($imagen, $tam, $x_m, $y_m, $color) {
     $tam2 = 40;
     $espacio = 20;
     $lado = ($tam * 2);
@@ -92,10 +91,10 @@ function c7($imagen, $tam, $x_m, $y_m) {
 
     for ($i = 0; $i < $elementos_por_lado; $i++) {
         $pos = $i * $paso + ($paso / 2);
-        cul($imagen, $tam2, $inicio_x + $pos, $inicio_y - $espacio);
-        cul($imagen, $tam2, $inicio_x + $pos, $inicio_y + $lado + $espacio);
-        cul($imagen, $tam2, $inicio_x - $espacio, $inicio_y + $pos);
-        cul($imagen, $tam2, $inicio_x + $lado + $espacio, $inicio_y + $pos);
+        cul($imagen, $tam2, $inicio_x + $pos, $inicio_y - $espacio, $color);
+        cul($imagen, $tam2, $inicio_x + $pos, $inicio_y + $lado + $espacio, $color);
+        cul($imagen, $tam2, $inicio_x - $espacio, $inicio_y + $pos, $color);
+        cul($imagen, $tam2, $inicio_x + $lado + $espacio, $inicio_y + $pos, $color);
     }
 }
 ?>

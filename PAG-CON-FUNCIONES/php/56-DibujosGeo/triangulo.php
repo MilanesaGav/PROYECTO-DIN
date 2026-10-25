@@ -1,7 +1,6 @@
 <?php
 // Función 1: Dibuja un triángulo base centrado en ($x_m, $y_m)
-function tri1($imagen, $tam, $x_m, $y_m) {
-    $color = imageColorAllocate($imagen, 128, 0, 128);
+function tri1($imagen, $tam, $x_m, $y_m, $color) {
     $puntos = array(
         $x_m, $y_m - $tam,         // Vértice Superior
         $x_m + $tam, $y_m + $tam,  // Vértice Inferior Derecho
@@ -11,7 +10,7 @@ function tri1($imagen, $tam, $x_m, $y_m) {
 }
 
 // Función 2: Grilla de triángulos centrada con espacios
-function tri2($imagen, $tam, $x_m, $y_m) {
+function tri2($imagen, $tam, $x_m, $y_m, $color) {
     $espacio = 20;
     $ancho_total_figura = ($tam * 2) + $espacio;
     $ancho_grilla = (3 * $ancho_total_figura) - $espacio;
@@ -24,13 +23,13 @@ function tri2($imagen, $tam, $x_m, $y_m) {
         $y_actual = $y_inicio + ($i * $ancho_total_figura);
         for ($j = 0; $j < 3; $j++) {
             $x_actual = $x_inicio + ($j * $ancho_total_figura);
-            tri1($imagen, $tam, $x_actual, $y_actual);
+            tri1($imagen, $tam, $x_actual, $y_actual, $color);
         }
     }
 }
 
 // Función 3: Diagonales simétricas de triángulos centradas en forma de X
-function tri3($imagen, $tam) {
+function tri3($imagen, $tam, $color) {
     $espacio = 20;
     $paso = ($tam * 2) + $espacio;
     $ancho = imagesx($imagen);
@@ -42,39 +41,39 @@ function tri3($imagen, $tam) {
     for ($i = 0; $i < 8; $i++) {
         $x_m = $x_centro - (3.5 * $paso) + ($i * $paso);
         $y_m = $y_centro - (3.5 * $paso) + ($i * $paso);
-        tri1($imagen, $tam, $x_m, $y_m);
+        tri1($imagen, $tam, $x_m, $y_m, $color);
     }
 
     for ($j = 0; $j < 8; $j++) {
         $x_m = $x_centro - (3.5 * $paso) + ($j * $paso);
         $y_m = $y_centro + (3.5 * $paso) - ($j * $paso);
-        tri1($imagen, $tam, $x_m, $y_m);
+        tri1($imagen, $tam, $x_m, $y_m, $color);
     }
 }
 
 // Función 4: Triángulos concéntricos (creciendo desde el centro)
-function tri4($imagen, $tam) {
+function tri4($imagen, $tam, $color) {
     $x_m = 300;
     $y_m = 300;
     for ($i = 0; $i < 5; $i++) {
-        tri1($imagen, $tam, $x_m, $y_m);
+        tri1($imagen, $tam, $x_m, $y_m, $color);
         $tam = $tam + 40;
     }
 }
 
 // Función 5: Triángulos en fila horizontal con crecimiento y espacio
-function tri5($imagen, $tam) {
+function tri5($imagen, $tam, $color) {
     $x_m = 80;
     $y_m = 300;
     for ($i = 0; $i < 4; $i++) {
-        tri1($imagen, $tam, $x_m, $y_m);
+        tri1($imagen, $tam, $x_m, $y_m, $color);
         $tam = $tam + 5;
         $x_m = $x_m + ($tam * 2) + 10;
     }
 }
 
 // Función 6: Triángulos distribuidos formando la silueta de un rombo
-function tri6($imagen, $tam, $x_m, $y_m) {
+function tri6($imagen, $tam, $x_m, $y_m, $color) {
     $tam_pequeno = 18;
     $radio = 140;
     $stop_x = $x_m; $stop_y = $y_m - $radio;
@@ -85,24 +84,24 @@ function tri6($imagen, $tam, $x_m, $y_m) {
 
     for ($i = 0; $i < $por_lado; $i++) {
         $st = ($i + 0.5) / $por_lado;
-        tri1($imagen, $tam_pequeno, $stop_x + ($sright_x - $stop_x) * $st, $stop_y + ($sright_y - $stop_y) * $st);
+        tri1($imagen, $tam_pequeno, $stop_x + ($sright_x - $stop_x) * $st, $stop_y + ($sright_y - $stop_y) * $st, $color);
     }
     for ($i = 0; $i < $por_lado; $i++) {
         $st = ($i + 0.5) / $por_lado;
-        tri1($imagen, $tam_pequeno, $sright_x + ($sbottom_x - $sright_x) * $st, $sright_y + ($sbottom_y - $sright_y) * $st);
+        tri1($imagen, $tam_pequeno, $sright_x + ($sbottom_x - $sright_x) * $st, $sright_y + ($sbottom_y - $sright_y) * $st, $color);
     }
     for ($i = 0; $i < $por_lado; $i++) {
         $st = ($i + 0.5) / $por_lado;
-        tri1($imagen, $tam_pequeno, $sbottom_x + ($sleft_x - $sbottom_x) * $st, $sbottom_y + ($sleft_y - $sbottom_y) * $st);
+        tri1($imagen, $tam_pequeno, $sbottom_x + ($sleft_x - $sbottom_x) * $st, $sbottom_y + ($sleft_y - $sbottom_y) * $st, $color);
     }
     for ($i = 0; $i < $por_lado; $i++) {
         $st = ($i + 0.5) / $por_lado;
-        tri1($imagen, $tam_pequeno, $sleft_x + ($stop_x - $sleft_x) * $st, $sleft_y + ($stop_y - $sleft_y) * $st);
+        tri1($imagen, $tam_pequeno, $sleft_x + ($stop_x - $sleft_x) * $st, $sleft_y + ($stop_y - $sleft_y) * $st, $color);
     }
 }
 
 // Función 7: Otra variante de rombo con triángulos distribuidos simétricamente
-function tri7($imagen, $tam, $x_m, $y_m) {
+function tri7($imagen, $tam, $x_m, $y_m, $color) {
     $tam_pequeno = 25;
     $radio = 110;
     $stop_x = $x_m; $stop_y = $y_m - $radio;
@@ -113,19 +112,19 @@ function tri7($imagen, $tam, $x_m, $y_m) {
 
     for ($i = 0; $i < $por_lado; $i++) {
         $st = ($i + 0.5) / $por_lado;
-        tri1($imagen, $tam_pequeno, $stop_x + ($sright_x - $stop_x) * $st, $stop_y + ($sright_y - $stop_y) * $st);
+        tri1($imagen, $tam_pequeno, $stop_x + ($sright_x - $stop_x) * $st, $stop_y + ($sright_y - $stop_y) * $st, $color);
     }
     for ($i = 0; $i < $por_lado; $i++) {
         $st = ($i + 0.5) / $por_lado;
-        tri1($imagen, $tam_pequeno, $sright_x + ($sbottom_x - $sright_x) * $st, $sright_y + ($sbottom_y - $sright_y) * $st);
+        tri1($imagen, $tam_pequeno, $sright_x + ($sbottom_x - $sright_x) * $st, $sright_y + ($sbottom_y - $sright_y) * $st, $color);
     }
     for ($i = 0; $i < $por_lado; $i++) {
         $st = ($i + 0.5) / $por_lado;
-        tri1($imagen, $tam_pequeno, $sbottom_x + ($sleft_x - $sbottom_x) * $st, $sbottom_y + ($sleft_y - $sbottom_y) * $st);
+        tri1($imagen, $tam_pequeno, $sbottom_x + ($sleft_x - $sbottom_x) * $st, $sbottom_y + ($sleft_y - $sbottom_y) * $st, $color);
     }
     for ($i = 0; $i < $por_lado; $i++) {
         $st = ($i + 0.5) / $por_lado;
-        tri1($imagen, $tam_pequeno, $sleft_x + ($stop_x - $sleft_x) * $st, $sleft_y + ($stop_y - $sleft_y) * $st);
+        tri1($imagen, $tam_pequeno, $sleft_x + ($stop_x - $sleft_x) * $st, $sleft_y + ($stop_y - $sleft_y) * $st, $color);
     }
 }
 ?>

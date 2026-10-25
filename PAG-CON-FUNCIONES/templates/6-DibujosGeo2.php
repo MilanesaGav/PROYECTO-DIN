@@ -141,9 +141,9 @@ $cfondo = isset($_SESSION['cfondo']) ? $_SESSION['cfondo'] : '#de0000';
             </div>
         </div>
         <div id="FondoModal">
-    <div id="modal">
+            <div id="modal">
 
-        <div id="ParteModal">
+            <div id="ParteModal">
 
             <!-- Lado izquierdo: color de la figura -->
             <div class="ContainerSelector">
