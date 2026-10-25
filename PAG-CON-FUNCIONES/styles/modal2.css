@@ -1,0 +1,92 @@
+/* Fondo oscuro que cubre la página */
+#FondoModal {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.65);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 1000;
+}
+
+/* Caja principal del modal */
+#modal {
+    width: 70%;
+    max-width: 800px;
+    min-height: 350px;
+
+    background-color: white;
+    border-radius: 20px;
+    padding: 25px;
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Las dos mitades */
+#ParteModal {
+    display: flex;
+    flex: 1;
+    gap: 20px;
+}
+
+/* Cada selector ocupa la mitad */
+.ContainerSelector {
+    flex: 1;
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+
+    border-radius: 15px;
+    padding: 20px;
+    background-color: #f0edf5;
+}
+
+/* Selectores de color */
+.ContainerSelector input[type="color"] {
+    width: 100px;
+    height: 80px;
+    cursor: pointer;
+    border: none;
+    background: transparent;
+}
+
+/* Botón */
+.botonsito {
+    align-self: center;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 10px;
+
+    background-color: rgb(122, 74, 190);
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.botonsito:hover {
+    background-color: rgb(95, 53, 155);
+}
+
+/* Adaptación para celulares */
+@media (max-width: 600px) {
+    #modal {
+        width: 90%;
+    }
+
+    #ParteModal {
+        flex-direction: column;
+    }
+
+    .ContainerSelector {
+        min-height: 150px;
+    }
+}
