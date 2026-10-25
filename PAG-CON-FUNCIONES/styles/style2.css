@@ -1,0 +1,70 @@
+#horizontal{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    
+}
+
+.containerDos{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+#parte1{
+    /*parte de color*/
+    border-top-left-radius: 20px ;
+    border-bottom-left-radius: 20px;
+    background-color: rgb(122, 74, 190);
+}
+
+#parte2{ 
+   /* parte del inicio de sesion (FORM)*/
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+}
+#FormInicioSesion {
+    display: flex;
+    flex-direction: column; /* Pone los elementos uno debajo del otro */
+    align-items: center;    /* Centra los elementos horizontalmente */
+   
+}
+
+#TituloForm{
+    font-size: 3em;
+}
+
+.LabelForm{
+    font-size: 1em;
+}
+
+.InputForm{
+    width:20vw;
+    height:2em ;
+    border-color: aliceblue;
+    border-radius: 20px;
+}
+
+
+.botonsito{
+    width: 10rem;
+    height: 3rem;
+    font-size: 1.5rem;
+    border-radius: 15px;
+    border:0px;
+    background-color: rgb(216, 195, 235);
+  
+}
+
+/* EL ORIGINAL */
+.botonsito:hover{
+    transform: scale(1.08);
+    background: rgba(152, 47, 238, 0.84);
+    box-shadow: 0 0 15px #8b36d5;
+    font-size: 2rem;
+
+}

@@ -1,0 +1,73 @@
+/* estuve probando fuentes */
+@import url('https://fonts.cdnfonts.com/css/diavlo');
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap');
+
+/* Aplicamos Poppins al body y a los botones/enlaces para que no fallen */
+body, button, input, select, textarea, a {
+    font-family: 'Montserrat', sans-serif;
+       /* font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; <--- anterior*/
+}
+
+/* Reseteo universal para evitar márgenes ocultos */
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background: linear-gradient(90deg,rgba(242, 240, 242, 0.94) 0%, rgba(172, 127, 235, 0.84) 53%, rgb(197, 118, 243) 100%);
+    overflow: hidden; /* Esto bloquea cualquier scroll accidental si la pantalla es muy chica */
+ 
+}
+
+main{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    height:100vh;
+}
+
+#principal{
+    height: 80dvh;
+    width: 80dvw;
+    background-color: azure;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /*x*/
+    align-items: center; /*y*/
+    border-radius: 20px;
+}
+
+#TituloPrincipal{
+    font-size: 5em;
+    text-shadow: 0 0 2px #212121;
+    margin-bottom: 3rem;
+}
+
+.boton{
+    width: 14rem;
+    height: 5rem;
+    font-size: 1.5rem;
+    border-radius: 15px;
+    border:0px;
+    background-color: rgb(216, 195, 235);
+}
+
+.boton:hover{
+    transform: scale(1.08);
+    background: rgba(152, 47, 238, 0.84);
+    box-shadow: 0 0 15px #8b36d5;
+    font-size: 2rem;
+
+}
+
+.botonera{
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;       /* <-- ¡Esto es lo que salva el diseño! Permite que bajen a la siguiente línea si no entran */
+    justify-content: center; /* <-- Centra los botones horizontalmente */
+    gap: 20px;             /* <-- Espacio prolijo entre botones (puedes sacar los margin-left/right de ContainerBoton si quieres) */
+}
+
+
+
