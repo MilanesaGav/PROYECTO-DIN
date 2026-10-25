@@ -5,7 +5,7 @@ function a($imagen){
     $x1=600;
     $y1=0;
     for($i=0;$i<60;$i++){
-        $color=imageColorAllocate($imagen,128,0,128);
+        $color=imageColorAllocate($imagen,128,0,128); //COLOR DE LINEA
         imageline($imagen, $x,$y,$x1,$y1,$color);
         $x=$x;
         $y=$y+25;

@@ -2,7 +2,7 @@
 include("diseños.php");
 
 $imagen = imageCreate(600,600);
-imageColorAllocate($imagen,222,0,0);
+imageColorAllocate($imagen,222,0,0); //COLOR DE FONDO
 imageinterlace($imagen,1);
 
 a($imagen);
