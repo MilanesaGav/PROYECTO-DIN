@@ -1,7 +1,11 @@
 <?php
+session_start();
+
 // 1. ESTO VA ARRIBA DE TODO (Antes del <!DOCTYPE html>)
 // Atrapamos la figura que eligió en la página anterior (círculo, cuadrado, etc.)
 $figura = isset($_GET['figura']) ? $_GET['figura'] : 'circle';
+$cfig = isset($_SESSION['cfig']) ? $_SESSION['cfig'] : '#800080';
+$cfondo = isset($_SESSION['cfondo']) ? $_SESSION['cfondo'] : '#de0000';
 ?>
 
 <!DOCTYPE html>
@@ -12,7 +16,8 @@ $figura = isset($_GET['figura']) ? $_GET['figura'] : 'circle';
     <title>Document</title>
     <link rel="stylesheet" href="../styles/style0.css">
     <link rel="stylesheet" href="../styles/style6.css">
-    <link rel="stylesheet" href="../styles/modal2.css">    
+    <link rel="stylesheet" href="../styles/modal2.css">  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">  
 </head>
 <body>
     <main>
@@ -23,7 +28,14 @@ $figura = isset($_GET['figura']) ? $_GET['figura'] : 'circle';
                 <div id="menu1">
                     
                     <div class="botonera">
-                        <span id="TituloAct"> ¿Que queres hacer con la figura?</span>
+                        <div class="menu-top">
+                            <span id="TituloAct">¿Que queres hacer con la figura?</span>
+                            <!-- Botón de colores chico ubicado arriba -->
+                            <button id="AbrirModal" class="btn-color-chiquito" type="button" title="Cambiar colores">
+                                <i class="bi bi-palette-fill"></i>
+                            </button>
+                        </div>
+
                         <!-- Tarjeta 1 -->
 
                        <!-- 
@@ -120,9 +132,9 @@ $figura = isset($_GET['figura']) ? $_GET['figura'] : 'circle';
                             </div>
                         </a>
 
+                        
                     </div>
                 </div>
-
                 <!-- Lienzo de la derecha -->
                 <iframe name="lienzo" id="LienzoBlanco"></iframe>
 
@@ -137,14 +149,14 @@ $figura = isset($_GET['figura']) ? $_GET['figura'] : 'circle';
             <div class="ContainerSelector">
                 <h3>Color de la figura</h3>
 
-                <input type="color" id="ColorFigura" value="#800080">
+                <input type="color" id="ColorFigura" value="<?php echo htmlspecialchars($cfig, ENT_QUOTES, 'UTF-8'); ?>">
             </div>
 
             <!-- Lado derecho: color del fondo -->
             <div class="ContainerSelector">
                 <h3>Color del fondo</h3>
 
-                <input type="color" id="ColorFondo" value="#de0000">
+                <input type="color" id="ColorFondo" value="<?php echo htmlspecialchars($cfondo, ENT_QUOTES, 'UTF-8'); ?>">
             </div>
 
         </div>

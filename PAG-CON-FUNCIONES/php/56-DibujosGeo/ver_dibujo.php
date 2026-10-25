@@ -1,9 +1,19 @@
 <?php
+session_start();
+
 // Recogemos todos los parámetros que manden las tarjetas o el modal
 $figura = isset($_GET['figura']) ? $_GET['figura'] : 'circle';
 $patron = isset($_GET['patron']) ? $_GET['patron'] : 1;
-$cfig = isset($_GET['cfig']) ? $_GET['cfig'] : '#800080';
-$cfondo = isset($_GET['cfondo']) ? $_GET['cfondo'] : '#de0000';
+
+if (isset($_GET['cfig']) && is_string($_GET['cfig']) && preg_match('/^#[0-9a-fA-F]{6}$/', $_GET['cfig'])) {
+    $_SESSION['cfig'] = $_GET['cfig'];
+}
+if (isset($_GET['cfondo']) && is_string($_GET['cfondo']) && preg_match('/^#[0-9a-fA-F]{6}$/', $_GET['cfondo'])) {
+    $_SESSION['cfondo'] = $_GET['cfondo'];
+}
+
+$cfig = isset($_SESSION['cfig']) ? $_SESSION['cfig'] : '#800080';
+$cfondo = isset($_SESSION['cfondo']) ? $_SESSION['cfondo'] : '#de0000';
 ?>
 <!DOCTYPE html>
 <html lang="es">

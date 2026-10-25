@@ -1,5 +1,11 @@
 
 const boton = document.getElementById("BotonModal");
+const abrirModal = document.getElementById("AbrirModal");
+const fondoModal = document.getElementById("FondoModal");
+
+abrirModal.addEventListener("click", function () {
+    fondoModal.style.display = "flex";
+});
 
 boton.addEventListener("click", function () {
 
@@ -39,5 +45,5 @@ boton.addEventListener("click", function () {
     lienzo.src = url.href;
 
     // Cerramos el modal
-    document.getElementById("FondoModal").style.display = "none";
+    fondoModal.style.display = "none";
 });

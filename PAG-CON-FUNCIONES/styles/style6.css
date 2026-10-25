@@ -6,8 +6,11 @@
     height: 100%;
 }
 #TituloAct{
+    display: flex;
+    text-align: center;
     font-size: 3em;
     color:rgb(32, 10, 49);
+
 }
 #menu1 {
     width: 25%;
@@ -50,6 +53,14 @@
     perspective: 1000px;
     text-decoration: none;
     display: block;
+}
+
+.boton-colores {
+    padding: 0;
+    border: 0;
+    background: none;
+    font: inherit;
+    cursor: pointer;
 }
 
 .tarjeta-inner {
@@ -105,3 +116,64 @@
     line-height: 1.1;
 }
 
+
+/* Estilo para que el botón de colores tenga el tamaño correcto y centre el icono */
+.boton-colores {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    background-color: #e6d7f2; /* O el color de fondo que usen tus tarjetas frontales */
+    border: none;
+    border-radius: 10px;
+}
+
+/* Agrandamos el icono para que deje de ser "un bebé" */
+.boton-colores i {
+    font-size: 2rem; 
+    color: #4a2c6d;  /* El color del texto/icono acorde a tu diseño */
+}
+
+/* Opcional: Efecto al pasar el mouse por encima (hover) para que coincida con las demás */
+.boton-colores:hover {
+    filter: brightness(0.95);
+    transform: translateY(-2px);
+    transition: all 0.2s ease;
+}
+
+/* Contenedor superior para alinear el título y el botón compacto */
+.menu-top {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 0 5px;
+    flex-direction: column;
+}
+
+/* Estilo del botón chiquito de colores */
+.btn-color-chiquito {
+    background-color: #d6b8f5; /* Un tono acorde a tu diseño morado */
+    border: none;
+    border-radius: 10px;
+    padding: 8px 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+    transition: all 0.2s ease;
+    margin-top: 2vh; /* Espacio entre el título y el botón */
+}
+
+/* Tamaño del icono para que se vea proporcionado y prolijo */
+.btn-color-chiquito i {
+    font-size: 1.2rem; /* Tamaño pequeño y elegante */
+    color: #4a2c6d;    /* Color oscuro para que contraste bien */
+}
+
+/* Efecto al pasar el mouse */
+.btn-color-chiquito:hover {
+    background-color: #c49ee6;
+    transform: translateY(-2px);
+}
