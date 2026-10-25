@@ -12,11 +12,21 @@
             <div id="horizontal">
                 <div  id="menu1">
                     <span id="TituloAct"> Elegí el diseño que quieras</span>
-                    <label class="LabelForm"> Nombre </label> <br>
-                        <input class="InputForm"> <br> <br>
-                        <label class="LabelForm"> Contraseña </label> <br>
-                        <input class="InputForm"> <br> <br>
-                    <button class="botonsito" type="button" onclick="window.open('-35.html', 'lienzo')">Enviar</button>
+                    <form action="../php/7-ArmarFigura/7-ArmarFigura.php" method="GET" target="lienzo">
+                        <label class="LabelForm">Ingrese X: </label><br>
+                        <input class="InputForm" type="number" name="x" placeholder="X" required><br>
+        
+                        <label class="LabelForm">Ingrese Y: </label><br>
+                        <input class="InputForm" type="number" name="y" placeholder="Y" required><br>
+        
+                        <label class="LabelForm">Ingrese X1: </label><br>
+                        <input class="InputForm" type="number" name="x1" placeholder="X1" required><br>
+        
+                        <label class="LabelForm">Ingrese Y1: </label><br>
+                        <input class="InputForm" type="number" name="y1" placeholder="Y1" required><br>
+        
+                        <button class="botonsito" type="submit">Enviar</button>
+                    </form>
                 </div>
 
                 <iframe name="lienzo" id="LienzoBlanco" > </iframe>
