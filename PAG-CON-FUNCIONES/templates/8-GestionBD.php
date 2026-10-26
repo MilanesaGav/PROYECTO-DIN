@@ -1,0 +1,37 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../styles/style0.css"> 
+    <link rel="stylesheet" href="../styles/style2.css">
+    <link rel="stylesheet" href="../styles/style4.css">  
+</head>
+<body>
+    <main>
+        <div id="principal">
+            <div id="horizontal">
+                <div id="menu1">
+                    <span id="TituloAct">Hace una operación en la Base de datos</span>
+    
+                    <!-- Abre el formulario de búsqueda dentro del iframe -->
+                    <button class="botonsito" type="button" onclick="window.open('../php/8-bd/intermedio.php?accion=form_buscar', 'lienzo')">Buscar Por id</button>
+    
+                    <!-- Abre el formulario de borrado dentro del iframe -->
+                    <button class="botonsito" type="button" onclick="window.open('../php/8-bd/intermedio.php?accion=form_borrar', 'lienzo')">Borrar por id</button>
+                    <button class="botonsito" type="button" onclick="window.open('../php/8-bd/intermedio.php?accion=form_mostrar', 'lienzo')">Mostrar Tabla</button>
+                </div>
+
+                <iframe name="lienzo" id="LienzoBlanco" > </iframe>
+                 
+            </div>
+            
+
+            
+            
+        </div>
+    </main>
+</body>
+</html>
