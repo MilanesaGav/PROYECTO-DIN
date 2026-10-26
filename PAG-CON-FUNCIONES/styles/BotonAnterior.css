@@ -18,3 +18,21 @@
     color:#ffffff;
     transform: scale(1.05);
 }
+
+#FlotanteModal{
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    align-self: flex-start;
+    background-color: rgb(225, 214, 243);
+    border: 1px solid rgb(187, 174, 207);
+    border-radius: 10px;
+    font-size: 2em;
+    padding:0px;
+}
+
+#FlotanteModal:hover{
+    background-color: rgb(51, 3, 71);
+    color:#ffffff;
+    transform: scale(1.05);
+}

@@ -5,8 +5,8 @@ $contenidoJSON = file_get_contents('php://input');
 $datos = json_decode($contenidoJSON, true);
 
 if ($datos) {
-    $hexFondo = $datos['c1']; // Viene como "#ff0000"
-    $hexLinea = $datos['c2']; // Viene como "#00ff00"
+    $hexFondo = $datos['fondo']; // Viene como "#ff0000"
+    $hexLinea = $datos['linea']; // Viene como "#00ff00"
 
     // Función para convertir Hex a RGB (lo que necesita PHP GD)
     function hexToRgb($hex) {

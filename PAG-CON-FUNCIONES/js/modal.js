@@ -39,6 +39,16 @@ abrir.addEventListener('click', () => {
   }
 });
 
+//================================================================
+// ================= CERRAR MODAL  ================================
+
+const  cerrar = document.getElementById('FlotanteModal');
+const div2 = document.getElementById('FondoModal');
+cerrar.addEventListener('click', () => {
+    div.style.display = 'none';  // Lo oculta
+  });
+
+
 
 // ====================================================================
 // =================COLOR MODAL DE DISEÑOS PREHECHOS  =================
