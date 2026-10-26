@@ -57,7 +57,7 @@ boton.addEventListener('click', () => {
   };
 
   // Enviamos los datos al archivo PHP mediante POST
-  fetch('guardar-colores.php', {
+  fetch('../php/1-DiseñosPrehechos/colores.php', { //se lo manda al LUGAR EXACTO DONDE ESTA EL ARCHIVO PHP
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'

@@ -1,11 +1,16 @@
 <?php
+session_start();
 include("diseños.php");
 
+// Si ya existen en la sesión, los usamos. Si no, ponemos uno por defecto.
+$rgbFondo = isset($_SESSION['rgbFondo']) ? $_SESSION['rgbFondo'] : [222, 0, 0];
+$rgbLinea = isset($_SESSION['rgbLinea']) ? $_SESSION['rgbLinea'] : [128, 0, 128];
+
 $imagen = imageCreate(600,600);
-imageColorAllocate($imagen,222,0,0); //COLOR DE FONDO
+imageColorAllocate($imagen, $rgbFondo[0], $rgbFondo[1], $rgbFondo[2]); //color de fondo
 imageinterlace($imagen,1);
 
-a($imagen);
+a($imagen, $rgbLinea);
 
 
 //TODO ESTO ES PARA Q SE CENTRE (PQ SINO SI O SI SE PONE ARRIBA A LA IZQUIERDA)
