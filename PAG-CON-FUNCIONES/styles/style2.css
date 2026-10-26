@@ -68,3 +68,21 @@
     font-size: 2rem;
 
 }
+
+.MiniBoton{
+    width: 3rem;
+    height: 3rem;
+    font-size: 1.5rem;
+    border-radius: 15px;
+    border:0px;
+    background-color: rgb(216, 195, 235);
+  
+}
+
+.MiniBoton:hover{
+    transform: scale(1.08);
+    background: rgba(27, 2, 48, 0.84);
+    box-shadow: 0 0 15px #1b0330;
+    font-size: 2rem;
+    color:rgb(220, 187, 246);
+}
