@@ -59,23 +59,6 @@
     background: transparent;
 }
 
-/* Botón */
-.botonsito {
-    align-self: center;
-    padding: 12px 30px;
-    border: none;
-    border-radius: 10px;
-
-    background-color: rgb(122, 74, 190);
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-}
-
-.botonsito:hover {
-    background-color: rgb(95, 53, 155);
-}
-
 /* Adaptación para celulares */
 @media (max-width: 600px) {
     #modal {
