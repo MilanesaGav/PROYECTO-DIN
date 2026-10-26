@@ -14,9 +14,14 @@
             <div id="horizontal">
                 <div  id="menu1">
                     <span id="TituloAct"> Hace una operación en el archivo</span>
-                    <button class="botonsito" type="button" onclick="window.open('-35.html', 'lienzo')">Mostrar Tabla</button>
-                    <button class="botonsito" type="button" onclick="window.open('-35.html', 'lienzo')">Buscar Por id</button>
-                    <button class="botonsito" type="button" onclick="window.open('-35.html', 'lienzo')">Borrar por id</button>
+                    <!-- Mostrar Tabla TXT -->
+                    <button class="botonsito" type="button" onclick="window.open('../php/9-archivos/intermedioArch.php?accion=mostrar_txt', 'lienzo')">Mostrar Tabla (TXT)</button>
+
+                    <!-- Buscar por ID TXT -->
+                    <button class="botonsito" type="button" onclick="window.open('../php/9-archivos/intermedioArch.php?accion=form_buscar_txt', 'lienzo')">Buscar por ID (TXT)</button>
+
+                    <!-- Borrar por ID TXT -->
+                    <button class="botonsito" type="button" onclick="window.open('../php/9-archivos/intermedioArch.php?accion=form_borrar_txt', 'lienzo')">Borrar por ID (TXT)</button>
                 </div>
 
                 <iframe name="lienzo" id="LienzoBlanco" > </iframe>
