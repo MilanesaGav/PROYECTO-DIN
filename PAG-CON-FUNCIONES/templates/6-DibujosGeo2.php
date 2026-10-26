@@ -31,9 +31,15 @@ $cfondo = isset($_SESSION['cfondo']) ? $_SESSION['cfondo'] : '#de0000';
                         <div class="menu-top">
                             <span id="TituloAct">¿Que queres hacer con la figura?</span>
                             <!-- Botón de colores chico ubicado arriba -->
-                            <button id="AbrirModal" class="btn-color-chiquito" type="button" title="Cambiar colores">
+
+                            <div class="botonera">
+                                <button id="AbrirModal" class="btn-color-chiquito" type="button" title="Cambiar colores">
                                 <i class="bi bi-palette-fill"></i>
-                            </button>
+                                </button>
+                                
+                                <button class="btn-color-chiquito" onclick="window.location.href='5-DibujosGeo1.html'">↩</button>
+                            </div>
+                            
                         </div>
 
                         <!-- Tarjeta 1 -->

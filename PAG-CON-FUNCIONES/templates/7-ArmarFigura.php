@@ -10,7 +10,8 @@ $cfondo = isset($_GET['cfondo']) ? $_GET['cfondo'] : '#de0000';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../styles/style7.css"> 
-    <link rel="stylesheet" href="../styles/modal2.css"> 
+    <link rel="stylesheet" href="../styles/modal2.css">
+    <link rel="stylesheet" href="../styles/style0.css"> 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"> 
 </head>
 <body>
@@ -20,9 +21,13 @@ $cfondo = isset($_GET['cfondo']) ? $_GET['cfondo'] : '#de0000';
                 <div id="menu1">
                     <div class="menu-top">
                         <span id="TituloAct">Ingresa coordenadas</span>
-                        <button id="AbrirModal" class="btn-color-chiquito" type="button" title="Cambiar colores">
-                            <i class="bi bi-palette-fill"></i>
-                        </button>
+                        <div class="botonera">
+                            <button id="AbrirModal" class="btn-color-chiquito" type="button" title="Cambiar colores">
+                                <i class="bi bi-palette-fill"></i>
+                            </button>
+
+                            <button class="btn-color-chiquito" onclick="window.location.href='5-DibujosGeo1.html'">↩</button>
+                        </div>
                     </div>
 
                     <!-- El formulario envía las coordenadas Y también los colores actuales -->
