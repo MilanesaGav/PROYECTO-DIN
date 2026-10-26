@@ -143,34 +143,30 @@ $cfondo = isset($_SESSION['cfondo']) ? $_SESSION['cfondo'] : '#de0000';
         <div id="FondoModal">
             <div id="modal">
 
-            <div id="ParteModal">
+                <div id="ParteModal">
 
-            <!-- Lado izquierdo: color de la figura -->
-            <div class="ContainerSelector">
-                <h3>Color de la figura</h3>
+                    <!-- Lado izquierdo: color de la figura -->
+                    <div class="ContainerSelector">
+                        <h3>Color de la figura</h3>
 
-                <input type="color" id="ColorFigura" value="<?php echo htmlspecialchars($cfig, ENT_QUOTES, 'UTF-8'); ?>">
+                        <input type="color" id="ColorFigura" value="<?php echo htmlspecialchars($cfig, ENT_QUOTES, 'UTF-8'); ?>">
+                    </div>
+
+                    <!-- Lado derecho: color del fondo -->
+                    <div class="ContainerSelector">
+                        <h3>Color del fondo</h3>
+
+                        <input type="color" id="ColorFondo" value="<?php echo htmlspecialchars($cfondo, ENT_QUOTES, 'UTF-8'); ?>">
+                    </div>
+
+                </div>
+
+                <button class="botonsito" id="BotonModal">
+                    Aplicar colores
+                </button>
             </div>
-
-            <!-- Lado derecho: color del fondo -->
-            <div class="ContainerSelector">
-                <h3>Color del fondo</h3>
-
-                <input type="color" id="ColorFondo" value="<?php echo htmlspecialchars($cfondo, ENT_QUOTES, 'UTF-8'); ?>">
-            </div>
-
         </div>
-
-        <button class="botonsito" id="BotonModal">
-            Aplicar colores
-        </button>
-
-    </div>
-</div>
-       
-
     </main>
-
     <script src="../js/colores.js"></script>
 </body>
 </html>
