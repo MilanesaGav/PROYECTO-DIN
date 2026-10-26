@@ -1,5 +1,20 @@
 /* el flotante arriba a la izquierda */
 
-#Flotante{
-    
+#flotante{
+    width:60px;
+    height: 60px;
+    position: absolute;
+    margin-top:-75vh;
+    align-self: flex-start;
+    background-color: rgb(225, 214, 243);
+    border: 1px solid rgb(187, 174, 207);
+    border-radius: 10px;
+    font-size: 2em;
+    padding:0px;
+}
+
+#flotante:hover{
+    background-color: rgb(51, 3, 71);
+    color:#ffffff;
+    transform: scale(1.05);
 }
