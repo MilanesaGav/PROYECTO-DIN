@@ -22,9 +22,7 @@ if ($datos) {
     $_SESSION['rgbFondo'] = hexToRgb($hexFondo);
     $_SESSION['rgbLinea'] = hexToRgb($hexLinea);
 
-    echo "Colores guardados en sesión con éxito";
 } else {
     http_response_code(400);
-    echo "No se recibieron datos.";
 }
 ?>

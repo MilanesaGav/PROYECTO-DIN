@@ -39,16 +39,6 @@ abrir.addEventListener('click', () => {
   }
 });
 
-//================================================================
-// ================= CERRAR MODAL  ================================
-
-const  cerrar = document.getElementById('FlotanteModal');
-const div2 = document.getElementById('FondoModal');
-cerrar.addEventListener('click', () => {
-    div.style.display = 'none';  // Lo oculta
-  });
-
-
 
 // ====================================================================
 // =================COLOR MODAL DE DISEÑOS PREHECHOS  =================
@@ -67,7 +57,7 @@ boton.addEventListener('click', () => {
   };
 
   // Enviamos los datos al archivo PHP mediante POST
-  fetch('../php/1-DiseñosPrehechos/colores.php', { //se lo manda al LUGAR EXACTO DONDE ESTA EL ARCHIVO PHP
+  fetch('../php/4-DiseñosPrehechos/colores.php', { //se lo manda al LUGAR EXACTO DONDE ESTA EL ARCHIVO PHP
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -77,9 +67,12 @@ boton.addEventListener('click', () => {
   .then(response => response.text())
   .then(resultado => {
     console.log("Respuesta de PHP:", resultado);
-    alert('¡Colores guardados con éxito!');
+    console.log('¡Colores guardados con éxito!');
   })
   .catch(error => {
     console.error("Hubo un error:", error);
   });
+  // ================= CERRAR MODAL  ================================
+  //por ultimo, al apretar el boton confirmar lo cierra
+  div.style.display = 'none';
 });
