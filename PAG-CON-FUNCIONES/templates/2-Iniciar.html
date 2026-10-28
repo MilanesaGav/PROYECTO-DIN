@@ -15,13 +15,13 @@
 
                 </div>
 
-                <div id="parte2" class="containerDos">
+                <div id="parte2" class="containerDos" method="POST" action="../php/2-login/login.php">
                     <form id="FormInicioSesion">
                         <p id="TituloForm">INICIO DE SESION</p>
                         <label class="LabelForm"> Nombre </label> <br>
-                        <input class="InputForm"> <br> <br>
+                        <input class="InputForm" type="text" name="nombre" > <br> <br>
                         <label class="LabelForm"> Contraseña </label> <br>
-                        <input class="InputForm"> <br> <br>
+                        <input class="InputForm" type="password" name="contra"> <br> <br>
                         <!-- POR AHORA le pongo el coso de script ese, pero hay q sacarlo (hay q ponerle esto dsps: type="submit")-->
                         <button class="botonsito" type="button" onclick="window.location.href='3-MenuPrincipal.html'">Empezar</button>
                     </form> 
