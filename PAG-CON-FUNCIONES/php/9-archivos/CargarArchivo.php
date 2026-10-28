@@ -2,7 +2,7 @@
 //esta funcion se usa en reg.php y en login.php
 
 function cargar($nombre,$mail,$categoria){
-    $hoy = date("d-m-y h:i");// 27-10-26 22:20
+    $hoy = date("d-m-y");// 27-10-26
 
     $archivo=fopen("../../archivo/movimientos.txt","a");
     fwrite($archivo,"$nombre|$mail|$categoria|$hoy \n");

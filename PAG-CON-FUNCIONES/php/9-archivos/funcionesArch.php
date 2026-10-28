@@ -1,7 +1,7 @@
-// --- FUNCIONES PARA MANEJO DE ARCHIVOS DE TEXTO (datos.txt) ---
+
 <?php
-function mostrarTablaTxt() {
-    $archivo = "datos.txt";
+function tabla() {
+    $archivo = "../../archivo/movimientos.txt";
     if (!file_exists($archivo)) {
         echo "<p>El archivo datos.txt aún no existe.</p>";
         return;
@@ -9,14 +9,11 @@ function mostrarTablaTxt() {
     
     $archi = fopen($archivo, "r") or die("Error al abrir el archivo");
     echo '<table border="1" style="border-collapse: collapse; margin-top: 20px;">
-            <tr style="background-color: #f2f2f2;">           
-                <th style="padding: 8px;">ID</th>          
+            <tr style="background-color: #f2f2f2;">              
                 <th style="padding: 8px;">Nombre</th>  
                 <th style="padding: 8px;">Correo</th>
-                <th style="padding: 8px;">Edad</th>          
-                <th style="padding: 8px;">DNI</th>          
-                <th style="padding: 8px;">Teléfono</th>          
-                <th style="padding: 8px;">Contraseña</th>          
+                <th style="padding: 8px;">Categoria</th>          
+                <th style="padding: 8px;">Horario</th>                 
             </tr>';      
 
     while (($linea = fgets($archi)) !== false) {
@@ -29,17 +26,14 @@ function mostrarTablaTxt() {
         echo "<td style='padding: 8px;'>" . ($campos[0] ?? '') . "</td>";            
         echo "<td style='padding: 8px;'>" . ($campos[1] ?? '') . "</td>";
         echo "<td style='padding: 8px;'>" . ($campos[2] ?? '') . "</td>";
-        echo "<td style='padding: 8px;'>" . ($campos[3] ?? '') . "</td>";      
-        echo "<td style='padding: 8px;'>" . ($campos[4] ?? '') . "</td>";      
-        echo "<td style='padding: 8px;'>" . ($campos[5] ?? '') . "</td>";      
-        echo "<td style='padding: 8px;'>" . ($campos[6] ?? '') . "</td>";      
+        echo "<td style='padding: 8px;'>" . ($campos[3] ?? '') . "</td>";           
         echo "</tr>";
     }      
     fclose($archi);
     echo '</table>';
 }
 
-function buscarTxt($id) {
+function buscarTxt($fecha) {
     $archivo = "datos.txt";
     if (!file_exists($archivo)) {
         echo "<p>El archivo datos.txt aún no existe.</p>";
@@ -49,7 +43,6 @@ function buscarTxt($id) {
     $encontrado = false;
     $campos = [];
     $archi = fopen($archivo, "r") or die("Error al abrir el archivo");
-
     while (($linea = fgets($archi)) !== false) {
         $linea = trim($linea);
         if (empty($linea)) {
@@ -90,8 +83,9 @@ function buscarTxt($id) {
     }
 }
 
-function borrarTxt($id) {
-    $archivo = "datos.txt";
+function borrar($f) {
+    $FechaFormateada = date('d-m-Y', strtotime($f));
+    $archivo = "../../archivo/movimientos.txt";
     if (!file_exists($archivo)) {
         echo "<p>El archivo datos.txt aún no existe.</p>";
         return;
@@ -106,7 +100,7 @@ function borrarTxt($id) {
             continue;
         }
         $campos = explode("|", $linea);
-        if ($campos[0] == $id) {
+        if ($campos[3] == $FechaFormateada) {
             continue; // Se salta el registro a borrar
         }
         $vec_aux[] = $linea . "\n";
