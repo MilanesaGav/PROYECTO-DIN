@@ -1,0 +1,105 @@
+body {
+    display: flex;
+    flex-direction: column; /* Cambia la dirección a columna para que los elementos bajen en cascada */
+    align-items: center;    /* Centra todo horizontalmente */
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra los elementos internos del form si querés */
+    width: 100%;
+}
+
+#LienzoBlancoBebe {
+    width: 85%;          /* Ancho amplio para que entre la tablita cómoda */
+    height: 60vh;       /* Altura fija para el espacio del resultado */ /* O un borde sutil para que delimite la zona */
+    border-radius: 12px;
+    margin-top: 20px;    /* Separación respecto al botón buscar */
+    border: white;
+    
+}
+
+#TituloAct {
+    font-size: 1.5rem;
+    color: rgb(14, 13, 13);
+    font-weight: 600;
+    
+}
+
+/* --- Etiquetas e Inputs --- */
+.LabelForm {
+    font-size: 0.95rem;
+    color: #000000;
+    align-self: flex-start; /* Alinea la etiqueta a la izquierda */
+    margin-left: 5%;
+    margin-bottom: 5px;
+}
+
+.InputForm {
+    width: 60%;
+    height: 3.2em;
+    border: 2px solid rgb(8, 8, 8);
+    border-radius: 20px;
+    padding: 0 12px;
+    box-sizing: border-box;
+    outline: none;
+    margin-bottom: 15px; /* Espacio prolijo en lugar de tantos <br> */
+}
+
+/* --- Botón Enviar --- */
+.botonsito {
+    width: 9rem;
+    height: 2.8rem;
+    font-size: 1.2rem;
+    border-radius: 15px;
+    border: 0px;
+    background-color: rgb(216, 195, 235);
+    cursor: pointer;
+    margin-top: 10px;
+    transition: all 0.3s ease;
+}
+
+.botonsito:hover {
+    transform: scale(1.08);
+    background: rgba(152, 47, 238, 0.84);
+    box-shadow: 0 0 15px #8b36d5;
+    color: white;
+}
+
+/* --- Estilos para la tabla de resultados --- */
+table {
+    width: 90%;
+    height: 50vh;
+    margin: auto;
+    border-collapse: collapse;
+    background-color: #d2aaf3;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    border-radius: 10px;
+    overflow: hidden; /* Mantiene los bordes redondeados en la cabecera */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+th, td {
+    padding: 16px 24px;
+    text-align: center;
+}
+
+th {
+    background-color: rgb(216, 195, 235); /* Tono lila suave de tus botones */
+    color: #2b1b31;
+    font-weight: 600;
+}
+
+tr:nth-child(even) {
+    background-color: #f3eff3; /* Efecto cebra sutil */
+}
+
+td {
+    color: #333333;
+    border-bottom: 1px solid #eee;
+    font-size: 2rem;
+}

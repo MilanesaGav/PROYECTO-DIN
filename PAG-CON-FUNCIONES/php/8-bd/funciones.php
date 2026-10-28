@@ -63,8 +63,7 @@ function borraruno($id){
         <!DOCTYPE html>
         <html>
         <head>
-            MOSTRAR DATOS
-            <link rel="stylesheet" href="p.css">
+             <link rel="stylesheet" href="../../styles/style8.css">
         </head>
         <body>
 
