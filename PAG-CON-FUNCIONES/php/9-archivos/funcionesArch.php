@@ -65,10 +65,42 @@ function borrar($fecha,$mail) {
     rename("../../archivo/temporal.txt","../../archivo/movimientos.txt");
 }
 
-function buscar($f) {
+function buscar($fecha,$mail) {
+    //formateamos fecha
+    $fecha_formateada = date('d-m-Y', strtotime($fecha));
+
+    //abrimos archivo original
+    $orig=fopen("../../archivo/movimientos.txt","r") or die("error");
+
+    //recorremos el archivo ORIGINAL para ir reemplazando en el temporal
+    echo '<table border="1" style="border-collapse: collapse; margin-top: 20px;">
+            <tr style="background-color: #f2f2f2;">              
+                <th style="padding: 8px;">Nombre</th>  
+                <th style="padding: 8px;">Correo</th>
+                <th style="padding: 8px;">Categoria</th>          
+                <th style="padding: 8px;">Horario</th>                 
+            </tr>';  
+            
+    while(($linea=fgets($orig))!==false){
+        $linea=trim($linea);
+        $campos = explode("|", $linea);
+         if (empty($linea)) {
+            continue;
+        }
+        if($campos[3]==$fecha_formateada && $campos[1]==$mail){
+            echo "<tr>";        
+            echo "<td style='padding: 8px;'>" . ($campos[0] ?? '') . "</td>";            
+            echo "<td style='padding: 8px;'>" . ($campos[1] ?? '') . "</td>";
+            echo "<td style='padding: 8px;'>" . ($campos[2] ?? '') . "</td>";
+            echo "<td style='padding: 8px;'>" . ($campos[3] ?? '') . "</td>";           
+            echo "</tr>";
+        }else{
+            //nada
+        }
     
-
-
+    }      
+    fclose($orig);
+    echo '</table>';
 }
 
 ?>
