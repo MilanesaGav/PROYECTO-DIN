@@ -14,6 +14,7 @@ if (isset($_GET['cfondo']) && is_string($_GET['cfondo']) && preg_match('/^#[0-9a
 
 $cfig = isset($_SESSION['cfig']) ? $_SESSION['cfig'] : '#800080';
 $cfondo = isset($_SESSION['cfondo']) ? $_SESSION['cfondo'] : '#de0000';
+
 ?>
 <!DOCTYPE html>
 <html lang="es">

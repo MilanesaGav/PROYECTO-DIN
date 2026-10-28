@@ -5,6 +5,7 @@ function cul($imagen, $tam, $x_m, $y_m, $color) {
 }
 
 // Función 2: Grilla de cuadrados centrada con espacios
+// Función 2: Grilla de cuadrados centrada con espacios
 function cu2($imagen, $tam, $x_m, $y_m, $color) {
     $espacio = 15;
     $ancho_total_figura = ($tam * 2) + $espacio;
@@ -18,7 +19,7 @@ function cu2($imagen, $tam, $x_m, $y_m, $color) {
         $y_actual = $y_inicio + ($i * $ancho_total_figura);
         for ($j = 0; $j < 3; $j++) {
             $x_actual = $x_inicio + ($j * $ancho_total_figura);
-            cul($imagen, $tam, $x_actual, $y_actual);
+            cul($imagen, $tam, $x_actual, $y_actual, $color); // <-- Ojo: asegurate de pasarle el $color aquí también
         }
     }
 }
@@ -34,15 +35,15 @@ function cu3($imagen, $tam, $color) {
     $y_centro = $alto / 2;
 
     for ($i = 0; $i < 8; $i++) {
-        $x_m = $x_centro - (3.5 * $paso) + ($i * $paso);
-        $y_m = $y_centro - (3.5 * $paso) + ($i * $paso);
-        cul($imagen, $tam, $x_m, $y_m);
+        $x_m = $x_centro + (-3.5 * $paso) + ($i * $paso);
+        $y_m = $y_centro + (-3.5 * $paso) + ($i * $paso);
+        cul($imagen, $tam, $x_m, $y_m, $color);
     }
 
     for ($j = 0; $j < 8; $j++) {
-        $x_m = $x_centro - (3.5 * $paso) + ($j * $paso);
+        $x_m = $x_centro + (-3.5 * $paso) + ($j * $paso);
         $y_m = $y_centro + (3.5 * $paso) - ($j * $paso);
-        cul($imagen, $tam, $x_m, $y_m);
+        cul($imagen, $tam, $x_m, $y_m, $color);
     }
 }
 
