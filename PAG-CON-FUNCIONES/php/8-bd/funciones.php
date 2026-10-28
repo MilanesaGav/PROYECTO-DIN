@@ -18,15 +18,62 @@ function insertar($nom,$edad,$mail){
 }
 
 function borraruno($id){
-    $conexion=mysqli_connect(SRV,USER,PASS,BASE) or die("Problemas en la conexion");
-    $sql="delete from usuarios where id='$id'";
-    if (mysqli_query($conexion  , $sql)) {
-        echo "Registro eliminado correctamente.";
-    } else {
-        echo "Error al eliminar ";
-    }
+    $conexion = mysqli_connect(SRV, USER, PASS, BASE) or die("Problemas en la conexion");
+    $sql = "DELETE FROM usuarios WHERE id = '$id'";
+    
+    mysqli_query($conexion, $sql);
+    $filas_afectadas = mysqli_affected_rows($conexion);
+    
     mysqli_close($conexion);
-}
+?>
+    <!DOCTYPE html>
+    <html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Resultado</title>
+        <style>
+            body {
+                background-color: #ffffff;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                margin: 0;
+            }
+            .mensaje {
+                padding: 20px 30px;
+                border-radius: 10px;
+                font-size: 1.1rem;
+                font-weight: 600;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+                text-align: center;
+            }
+            .exito {
+                background-color: #f0fdf4;
+                color: #16a34a;
+                border: 1px solid #bbf7d0;
+            }
+            .error {
+                background-color: #fef2f2;
+                color: #dc2626;
+                border: 1px solid #fecaca;
+            }
+        </style>
+    </head>
+    <body>
+
+        <?php if ($filas_afectadas > 0) { ?>
+            <div class="mensaje exito">Registro eliminado correctamente.</div>
+        <?php } else { ?>
+            <div class="mensaje error">No se encuentra ese usuario en la base de datos.</div>
+        <?php } ?>
+
+    </body>
+    </html>
+<?php 
+} 
+
 
     //igualmente no sirve para q avise si no hay un user con ese id, 
     // solo avisa si hay un error de sintaxis sql
@@ -70,9 +117,9 @@ function borraruno($id){
             <table border="1">    
                 <tr>   
                     <br>           
-                    <td>id</td>          
-                    <td>nombre</td>  
-                    <td>mail</td>     
+                    <td class="violeta">id</td>          
+                    <td class="violeta">nombre</td>  
+                    <td class="violeta">mail</td>     
                 </tr>      
 
                <?php
@@ -103,17 +150,17 @@ function borraruno($id){
     <!DOCTYPE html>
     <html>
     <head>
-        MOSTRAR DATOS
-        <link rel="stylesheet" href="p.css">
+        <link rel="stylesheet" href="../../styles/style8.css">
+        <link rel="stylesheet" href="../../styles/style9.css">
     </head>
     <body>
     
         <table border="1">    
             <tr>   
                 <br>           
-                <td>id</td>          
-                <td>nombre</td>  
-                <td>mail</td>       
+                <td class="violeta">id</td>          
+                <td class="violeta">nombre</td>  
+                <td class="violeta">mail</td>       
             </tr>      
 
            <?php

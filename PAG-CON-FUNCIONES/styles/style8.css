@@ -73,10 +73,10 @@ form {
 /* --- Estilos para la tabla de resultados --- */
 table {
     width: 90%;
-    height: 50vh;
+
     margin: auto;
     border-collapse: collapse;
-    background-color: #d2aaf3;
+    background-color: #ffffff;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
     border-radius: 10px;
     overflow: hidden; /* Mantiene los bordes redondeados en la cabecera */
@@ -84,22 +84,22 @@ table {
 }
 
 th, td {
-    padding: 16px 24px;
+    padding: 8px 14px;
     text-align: center;
 }
 
 th {
-    background-color: rgb(216, 195, 235); /* Tono lila suave de tus botones */
-    color: #2b1b31;
+    color: #e3d8e7;
     font-weight: 600;
-}
-
-tr:nth-child(even) {
-    background-color: #f3eff3; /* Efecto cebra sutil */
 }
 
 td {
     color: #333333;
     border-bottom: 1px solid #eee;
     font-size: 2rem;
+}
+.violeta{
+    background-color: blueviolet;
+
+    color: white;
 }
