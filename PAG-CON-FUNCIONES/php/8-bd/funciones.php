@@ -19,7 +19,7 @@ function insertar($nom,$edad,$mail){
 
 function borraruno($id){
     $conexion=mysqli_connect(SRV,USER,PASS,BASE) or die("Problemas en la conexion");
-    $sql="delete from alumnos where id='$id'";
+    $sql="delete from usuarios where id='$id'";
     if (mysqli_query($conexion  , $sql)) {
         echo "Registro eliminado correctamente.";
     } else {
@@ -95,3 +95,43 @@ function borraruno($id){
 
 
 <?php } ?>  
+
+<?php
+    function mostrar(){
+    $conexion=mysqli_connect(SRV,USER,PASS,BASE) or die("Problemas en la conexion");
+    $registros=mysqli_query($conexion,"SELECT * FROM usuarios");  
+    ?>
+    <!DOCTYPE html>
+    <html>
+    <head>
+        MOSTRAR DATOS
+        <link rel="stylesheet" href="p.css">
+    </head>
+    <body>
+    
+        <table border="1">    
+            <tr>   
+                <br>           
+                <td>id</td>          
+                <td>nombre</td>  
+                <td>mail</td>       
+            </tr>      
+
+           <?php
+           while($myrow=mysqli_fetch_array($registros)) {   
+            //recorre de uno en uno los registros convirtiendo en vector cada registro
+           ?>
+            <tr>        
+                <td><?php echo $myrow['id']?>            
+                <td><?php echo $myrow['nombre']?></td>
+                <td><?php echo $myrow['mail']?></td>    
+            </tr>
+           <?php    
+            }      
+            ?>
+        </table>
+
+        </body>
+    </html>
+    <?php 
+    } ?>
