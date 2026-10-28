@@ -88,15 +88,11 @@ th, td {
     text-align: center;
 }
 
-th {
-    color: #e3d8e7;
-    font-weight: 600;
-}
-
 td {
     color: #333333;
     border-bottom: 1px solid #eee;
     font-size: 2rem;
+    background-color: #ffffff;
 }
 .violeta{
     background-color: blueviolet;
