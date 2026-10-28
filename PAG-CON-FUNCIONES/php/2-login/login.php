@@ -16,8 +16,12 @@ $registros=mysqli_query($conexion,$sql);
 if($reg=mysqli_fetch_array($registros)){
     cargar($reg['nombre'],$reg['mail'],"inicio de sesión");
 }else{
-    echo "no se encontro";
-}
+    echo '<script>
+            alert("No se encontró el usuario o la contraseña es incorrecta");
+            window.history.back();
+          </script>' ;
+};
+
 
 
 
