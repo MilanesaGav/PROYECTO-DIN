@@ -4,7 +4,7 @@
 define('SRV', 'localhost');
 define('USER', 'root');
 define("PASS","");
-define("BASE","bd");
+define("BASE","dinamica");
 // ahi tamos definiendo variables globales, eso mediante CONSTANTES (como en js)
 //para acceder a esas ctes/vars glob hay q poner => (sin $) NOMBRECTE
 
@@ -58,21 +58,41 @@ function borraruno($id){
 
     function buscar($id){
         $conexion=mysqli_connect(SRV,USER,PASS,BASE) or die("Problemas en la conexion");
-        $sql="select * from alumnos where id='$id'"; //para buscar alumno por id
-        $registros = mysqli_query($conexion, $sql) or die("Problemas en el select " . mysqli_error($conexion));
-        // guarda el query en la variable registros
-
-        if ($reg = mysqli_fetch_array($registros)) {
-        // hace un array/vector con los datos del registro, si existe guarda en session,
-        //sino le dice q no encontro
-        $_SESSION["IDcuenta"] = $reg['id'];
-        $_SESSION["NOMcuenta"] = $reg['nombre']; // O la columna que tengan en la BD (ej: nombre)
-            echo "Se guardó tu id";
-        }else{
-        echo "no se encontro tu id";
-        }
-
-        mysqli_close($conexion);
-    }
-
+        $registros=mysqli_query($conexion,"SELECT * FROM usuarios where id=$id");  
 ?>
+        <!DOCTYPE html>
+        <html>
+        <head>
+            MOSTRAR DATOS
+            <link rel="stylesheet" href="p.css">
+        </head>
+        <body>
+
+            <table border="1">    
+                <tr>   
+                    <br>           
+                    <td>id</td>          
+                    <td>nombre</td>  
+                    <td>mail</td>     
+                </tr>      
+
+               <?php
+               while($myrow=mysqli_fetch_array($registros)) {   
+                //recorre de uno en uno los registros convirtiendo en vector cada registro
+               ?>
+                <tr>        
+                    <td><?php echo $myrow['id']?>            
+                    <td><?php echo $myrow['nombre']?></td>
+                    <td><?php echo $myrow['mail']?></td>
+                    <td><?php echo $myrow["edad"]?></td>      
+                </tr>
+               <?php    
+                }      
+                ?>
+            </table>
+
+            </body>
+        </html>
+
+
+<?php } ?>  
