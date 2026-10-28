@@ -83,8 +83,7 @@ function borraruno($id){
                 <tr>        
                     <td><?php echo $myrow['id']?>            
                     <td><?php echo $myrow['nombre']?></td>
-                    <td><?php echo $myrow['mail']?></td>
-                    <td><?php echo $myrow["edad"]?></td>      
+                    <td><?php echo $myrow['mail']?></td> 
                 </tr>
                <?php    
                 }      
