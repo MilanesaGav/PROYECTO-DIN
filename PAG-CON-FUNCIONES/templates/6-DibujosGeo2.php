@@ -18,6 +18,7 @@ $cfondo = isset($_SESSION['cfondo']) ? $_SESSION['cfondo'] : '#de0000';
     <link rel="stylesheet" href="../styles/style6.css">
     <link rel="stylesheet" href="../styles/modal2.css">  
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">  
+    <link rel="stylesheet" href="../styles/responsive.css">
 </head>
 <body>
     <main>

@@ -13,6 +13,7 @@ $cfondo = isset($_GET['cfondo']) ? $_GET['cfondo'] : '#de0000';
     <link rel="stylesheet" href="../styles/modal2.css">
     <link rel="stylesheet" href="../styles/style0.css"> 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"> 
+    <link rel="stylesheet" href="../styles/responsive.css">
 </head>
 <body>
     <main>

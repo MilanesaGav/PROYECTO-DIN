@@ -115,3 +115,47 @@ td {
         color: #dc2626;
         border: 1px solid #fecaca;
     }
+
+@media (max-width: 600px) {
+    body {
+        min-height: 100vh;
+        align-items: stretch;
+        padding: 16px;
+        overflow-x: hidden;
+    }
+
+    form {
+        align-items: stretch;
+    }
+
+    .InputForm {
+        width: 100%;
+    }
+
+    #LienzoBlancoBebe {
+        width: 100%;
+        min-height: 40vh;
+    }
+
+    table {
+        display: block;
+        width: 100%;
+        max-width: 100%;
+        overflow-x: auto;
+    }
+
+    th,
+    td {
+        padding: 8px;
+        white-space: nowrap;
+    }
+
+    td {
+        font-size: clamp(1rem, 4vw, 1.4rem);
+    }
+
+    .mensaje {
+        max-width: 100%;
+        padding: 16px;
+    }
+}
