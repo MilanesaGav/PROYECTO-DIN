@@ -64,42 +64,82 @@ function borrar($fecha,$mail) {
     //y hola.txt (original) pasa a MORIRRRR
     rename("../../archivo/temporal.txt","../../archivo/movimientos.txt");
 }
+?>
 
-function buscar($fecha,$mail) {
-    //formateamos fecha
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Resultado de Búsqueda</title>
+    <link rel="stylesheet" href="../../styles/style8.css">
+</head>
+<body>
+<?php
+    if (isset($_POST['fecha']) && isset($_POST['mail'])) {
+        $fecha = $_POST['fecha'];
+        $mail = $_POST['mail'];
+
+        // Llamamos a la función buscar para mostrar los resultados
+        buscar($fecha, $mail);
+    } else {
+        echo '<div class="mensaje error">Por favor, proporciona una fecha y un correo electrónico.</div>';
+    }
+function buscar($fecha, $mail) {
+    $archivo = "../../archivo/movimientos.txt";
+
+    if (!file_exists($archivo)) {
+        echo '<div class="mensaje error">El archivo de movimientos no existe.</div>';
+        return;
+    }
+
+    // Formateamos la fecha
     $fecha_formateada = date('d-m-Y', strtotime($fecha));
 
-    //abrimos archivo original
-    $orig=fopen("../../archivo/movimientos.txt","r") or die("error");
+    // Abrimos el archivo y buscamos coincidencias
+    $orig = fopen($archivo, "r") or die("error");
+    $coincidencias = [];
 
-    //recorremos el archivo ORIGINAL para ir reemplazando en el temporal
-    echo '<table border="1" style="border-collapse: collapse; margin-top: 20px;">
-            <tr style="background-color: #f2f2f2;">              
-                <th style="padding: 8px;">Nombre</th>  
-                <th style="padding: 8px;">Correo</th>
-                <th style="padding: 8px;">Categoria</th>          
-                <th style="padding: 8px;">Horario</th>                 
-            </tr>';  
-            
-    while(($linea=fgets($orig))!==false){
-        $linea=trim($linea);
-        $campos = explode("|", $linea);
-         if (empty($linea)) {
+    while (($linea = fgets($orig)) !== false) {
+        $linea = trim($linea);
+        if (empty($linea)) {
             continue;
         }
-        if($campos[3]==$fecha_formateada && $campos[1]==$mail){
-            echo "<tr>";        
-            echo "<td style='padding: 8px;'>" . ($campos[0] ?? '') . "</td>";            
-            echo "<td style='padding: 8px;'>" . ($campos[1] ?? '') . "</td>";
-            echo "<td style='padding: 8px;'>" . ($campos[2] ?? '') . "</td>";
-            echo "<td style='padding: 8px;'>" . ($campos[3] ?? '') . "</td>";           
-            echo "</tr>";
-        }else{
-            //nada
+        $campos = explode("|", $linea);
+
+        $campo_mail = $campos[1] ?? '';
+        $campo_fecha = $campos[3] ?? '';
+
+        // Verificamos si coincide la fecha y el correo
+        if ($campo_fecha == $fecha_formateada && $campo_mail == $mail) {
+            $coincidencias[] = $campos;
         }
-    
-    }      
+    }
     fclose($orig);
+
+    // 1. Si NO hay coincidencias, mostramos el mensaje de error con el estilo
+    if (empty($coincidencias)) {
+        echo '<div class="mensaje error">No se encuentra ningún registro para ese usuario en esa fecha.</div>';
+        return;
+    }
+
+    // 2. Si SÍ hay coincidencias, mostramos la tabla con los estilos
+    echo '<table class="tabla-movimientos">';
+    echo '<tr>';
+    echo '<th class="violeta">Nombre</th>';
+    echo '<th>Correo</th>';
+    echo '<th>Categoria</th>';
+    echo '<th>Horario</th>';
+    echo '</tr>';
+
+    foreach ($coincidencias as $campos) {
+        echo "<tr>";
+        echo "<td>" . ($campos[0] ?? '') . "</td>";
+        echo "<td>" . ($campos[1] ?? '') . "</td>";
+        echo "<td>" . ($campos[2] ?? '') . "</td>";
+        echo "<td>" . ($campos[3] ?? '') . "</td>";
+        echo "</tr>";
+    }
     echo '</table>';
 }
 

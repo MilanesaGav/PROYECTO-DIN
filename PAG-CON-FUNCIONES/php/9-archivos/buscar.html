@@ -4,15 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+        <link rel="stylesheet" href="../../styles/style8.css">
 </head>
 <body>
-    <h3>Buscar movimiento</h3>
-            <form  method="POST" action="buscar.php">
-                <label for="id">Correo del usuario:</label>
-                <input type="email" name="mail" required>
-                <label for="id">Fecha:</label>
-                <input type="date" name="fecha" required>
-                <button type="submit" style="background-color: red; color: white;">Buscar</button>
+    <h3 id="TituloAct">Buscar movimiento</h3>
+            <form  method="POST" action="buscar.php" target="lienzoBebe">
+                <label>email</label>
+                <input class="InputForm" type="email" name="mail" required>
+                <label >Fecha:</label>
+                <input class="InputForm" type="date" name="fecha" required>
+                <button type="submit" class="botonsito" >Buscar</button>
             </form>
+            <iframe name="lienzoBebe" id="LienzoBlancoBebe" target="lienzoBebe">
+                    <!-- la pantalla en blanco, "el pizarron" donde se ponen los dibujos -->
+                </iframe>
 </body>
 </html>
