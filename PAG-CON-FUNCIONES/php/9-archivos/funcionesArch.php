@@ -187,9 +187,9 @@ function buscar($fecha, $mail) {
     echo '<table class="tabla-movimientos">';
     echo '<tr>';
     echo '<th class="violeta">Nombre</th>';
-    echo '<th>Correo</th>';
-    echo '<th>Categoria</th>';
-    echo '<th>Fecha</th>';
+    echo '<th class="violeta">Correo</th>';
+    echo '<th class="violeta">Categoria</th>';
+    echo '<th class="violeta">Fecha</th>';
     echo '</tr>';
 
     foreach ($coincidencias as $campos) {
