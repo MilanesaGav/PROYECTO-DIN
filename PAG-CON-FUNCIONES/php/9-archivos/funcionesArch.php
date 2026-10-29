@@ -11,10 +11,10 @@ function tabla() {
     $archi = fopen($archivo, "r") or die("Error al abrir el archivo");
     echo '<table border="1" style="border-collapse: collapse; margin-top: 20px;">
             <tr style="background-color: #f2f2f2;">              
-                <th style="padding: 8px;">Nombre</th>  
-                <th style="padding: 8px;">Correo</th>
-                <th style="padding: 8px;">Categoria</th>          
-                <th style="padding: 8px;">Horario</th>                 
+                <th class="violeta";">Nombre</th>  
+                <th class="violeta";">Correo</th>
+                <th class="violeta";">Categoria</th>          
+                <th class="violeta";">Horario</th>                 
             </tr>';      
 
     while (($linea = fgets($archi)) !== false) {
@@ -34,35 +34,97 @@ function tabla() {
     echo '</table>';
 }
 
-function borrar($fecha,$mail) {
-    //formateamos fecha
+?>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Resultado</title>
+    <style>
+        /* Estilos generales para el resultado dentro del iframe */
+        body {
+            background-color: #ffffff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        /* Estilos para el cuadro de mensaje */
+        .mensaje {
+            padding: 20px 30px;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            max-width: 400px;
+        }
+
+        /* Estilo para cuando se borra correctamente (Verde) */
+        .exito {
+            background-color: #f0fdf4;
+            color: #16a34a;
+            border: 1px solid #bbf7d0;
+        }
+
+        /* Estilo para cuando hay un error o no se encuentra (Rojo) */
+        .error {
+            background-color: #fef2f2;
+            color: #dc2626;
+            border: 1px solid #fecaca;
+        }
+    </style>
+</head>
+<body>
+
+<?php
+function borrar($fecha, $mail) {
+    // Formateamos la fecha
     $fecha_formateada = date('d-m-Y', strtotime($fecha));
 
-    //abrimos archivo original
-    $orig=fopen("../../archivo/movimientos.txt","r") or die("error");
+    // Abrimos archivo original y temporal
+    $orig = fopen("../../archivo/movimientos.txt", "r") or die("error");
+    $temp = fopen("../../archivo/temporal.txt", "w") or die("error");
 
-    //abrimos archivo temporal (LO ABRIMOS CON W POR SI EL USUARIO TIENE Q CAMBIAR MUCHOS DATOS)
-    $temp=fopen("../../archivo/temporal.txt","w") or die("error");
+    $eliminado = false; // Bandera para saber si se borró algo
 
-    //recorremos el archivo ORIGINAL para ir reemplazando en el temporal
-    while(($linea=fgets($orig))!==false){
-        $linesita=trim($linea);
-        $datos=explode("|",$linesita);
-        if($datos[3]==$fecha_formateada && $datos[1]==$mail){
-            //nada
-        }else{
-            fwrite($temp,$linea);
+    // Recorremos el archivo original
+    while (($linea = fgets($orig)) !== false) {
+        $lineasita = trim($linea);
+        if (empty($lineasita)) {
+            fwrite($temp, $linea);
+            continue;
+        }
+        $datos = explode("|", $lineasita);
+        
+        $campo_mail = $datos[1] ?? '';
+        $campo_fecha = $datos[3] ?? '';
+
+        // Si coincide, activamos la bandera y NO lo escribimos (lo borramos)
+        if ($campo_fecha == $fecha_formateada && $campo_mail == $mail) {
+            $eliminado = true; 
+        } else {
+            // Si no coincide, lo pasamos al temporal intacto
+            fwrite($temp, $linea);
         }
     }
 
-    //ahora cerramos los dos archivos
+    // Cerramos los archivos
     fclose($orig);
     fclose($temp);
 
-    //x ultimo le cambiamos el nombre a los archivos
-    //chau.txt pasa a llamarse hola.txt
-    //y hola.txt (original) pasa a MORIRRRR
-    rename("../../archivo/temporal.txt","../../archivo/movimientos.txt");
+    // Reemplazamos el archivo viejo por el temporal limpio
+    rename("../../archivo/temporal.txt", "../../archivo/movimientos.txt");
+
+    // Mostramos el mensaje estilizado usando tus clases del CSS
+    if ($eliminado) {
+        echo '<div class="mensaje exito">Registro eliminado correctamente.</div>';
+    } else {
+        echo '<div class="mensaje error">No se encuentra ese usuario en esa fecha.</div>';
+    }
 }
 ?>
 
@@ -82,8 +144,6 @@ function borrar($fecha,$mail) {
 
         // Llamamos a la función buscar para mostrar los resultados
         buscar($fecha, $mail);
-    } else {
-        echo '<div class="mensaje error">Por favor, proporciona una fecha y un correo electrónico.</div>';
     }
 function buscar($fecha, $mail) {
     $archivo = "../../archivo/movimientos.txt";
