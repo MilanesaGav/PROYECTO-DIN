@@ -14,7 +14,7 @@ function tabla() {
                 <th class="violeta";">Nombre</th>  
                 <th class="violeta";">Correo</th>
                 <th class="violeta";">Categoria</th>          
-                <th class="violeta";">Horario</th>                 
+                <th class="violeta";">Fecha</th>                 
             </tr>';      
 
     while (($linea = fgets($archi)) !== false) {
@@ -189,7 +189,7 @@ function buscar($fecha, $mail) {
     echo '<th class="violeta">Nombre</th>';
     echo '<th>Correo</th>';
     echo '<th>Categoria</th>';
-    echo '<th>Horario</th>';
+    echo '<th>Fecha</th>';
     echo '</tr>';
 
     foreach ($coincidencias as $campos) {
