@@ -27,7 +27,9 @@ $cfondo = isset($_GET['cfondo']) ? $_GET['cfondo'] : '#de0000';
                                 <i class="bi bi-palette-fill"></i>
                             </button>
 
-                            <button class="btn-color-chiquito" onclick="window.location.href='5-DibujosGeo1.html'">↩</button>
+                            <button class="btn-color-chiquito" onclick="window.location.href='5-DibujosGeo1.html'">
+                                <i class="bi bi-arrow-return-left"></i>
+                            </button>
                         </div>
                     </div>
 
