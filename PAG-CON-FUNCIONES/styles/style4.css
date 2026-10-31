@@ -29,14 +29,19 @@
 /* LAS COPIAS */
 .botonsito{
     width:15rem;
+    max-width: 100%;
+    height: auto;
+    min-height: 3rem;
+    box-sizing: border-box;
+    padding: 8px 12px;
+    white-space: normal;
+    overflow-wrap: anywhere;
 }
 
 .botonsito:hover{
     transform: scale(1.08);
     background: rgba(27, 2, 48, 0.84);
     box-shadow: 0 0 15px #1b0330;
-    font-size: 2rem;
     color:rgb(220, 187, 246);
 
 }
-
