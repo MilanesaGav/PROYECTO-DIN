@@ -15,6 +15,8 @@ $cfondo = isset($_SESSION['cfondo']) ? $_SESSION['cfondo'] : '#de0000';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../styles/style0.css">
+    <link rel="stylesheet" href="../styles/style2.css">
+    <link rel="stylesheet" href="../styles/style4.css">
     <link rel="stylesheet" href="../styles/style6.css">
     <link rel="stylesheet" href="../styles/modal2.css">  
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">  
@@ -172,7 +174,7 @@ $cfondo = isset($_SESSION['cfondo']) ? $_SESSION['cfondo'] : '#de0000';
                 </div>
 
                 <button class="botonsito" id="BotonModal">
-                    Aplicar colores
+                    Confirmar
                 </button>
             </div>
         </div>
