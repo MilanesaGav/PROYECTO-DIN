@@ -28,20 +28,25 @@
 }
 /* LAS COPIAS */
 .botonsito{
-    width:15rem;
+    width: min(17rem, 100%);
     max-width: 100%;
     height: auto;
     min-height: 3rem;
     box-sizing: border-box;
     padding: 8px 12px;
+    font-size: 1.5rem;
+    line-height: 1.2;
     white-space: normal;
-    overflow-wrap: anywhere;
+    overflow-wrap: normal;
+    word-break: normal;
+    transition: transform 0.3s ease, font-size 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .botonsito:hover{
     transform: scale(1.08);
     background: rgba(27, 2, 48, 0.84);
     box-shadow: 0 0 15px #1b0330;
+    font-size: 2rem;
     color:rgb(220, 187, 246);
 
 }
