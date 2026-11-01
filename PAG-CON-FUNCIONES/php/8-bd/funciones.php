@@ -1,16 +1,12 @@
 <?php
-//dejo los datos de la bd arriba para usarlos de manera global
-// $servidor="localhost"; $usuario="root"; $pass=""; $base="bd";
-define('SRV', 'localhost');
-define('USER', 'root');
-define("PASS","");
-define("BASE","dinamica");
-// ahi tamos definiendo variables globales, eso mediante CONSTANTES (como en js)
-//para acceder a esas ctes/vars glob hay q poner => (sin $) NOMBRECTE
+$servidor="sql110.ezyro.com";
+$usuario="ezyro_43324187";
+$pass="bfe7d372d2";
+$base="ezyro_43324187_dinamica";
 
 //FUNCIONES
 function insertar($nom,$edad,$mail){
-    $conexion=mysqli_connect(SRV,USER,PASS,BASE) or die("Problemas en la conexion");
+    $conexion=mysqli_connect($servidor,$usuario,$pass,$base) or die("Problemas en la conexion");
     $sql= "insert into alumnos  values (0 , '$nom' , '$mail', $edad  )" or die("Problemas en el select".mysqli_error());
     mysqli_query($conexion,$sql);
     mysqli_close($conexion);
@@ -18,7 +14,7 @@ function insertar($nom,$edad,$mail){
 }
 
 function borraruno($id){
-    $conexion = mysqli_connect(SRV, USER, PASS, BASE) or die("Problemas en la conexion");
+    $conexion=mysqli_connect($servidor,$usuario,$pass,$base) or die("Problemas en la conexion");
     $sql = "DELETE FROM usuarios WHERE id = '$id'";
     
     mysqli_query($conexion, $sql);
@@ -96,7 +92,7 @@ function borraruno($id){
     // echo "se borró al alumno correctamente";
 
     function borrartd(){
-        $conexion=mysqli_connect(SRV,USER,PASS,BASE) or die("Problemas en la conexion");
+        $conexion=mysqli_connect($servidor,$usuario,$pass,$base) or die("Problemas en la conexion");
         $sql="delete from alumnos"; //para borrar todo
         mysqli_query($conexion,$sql);
         mysqli_close($conexion);
@@ -104,7 +100,7 @@ function borraruno($id){
     }
 
     function buscar($id){
-        $conexion=mysqli_connect(SRV,USER,PASS,BASE) or die("Problemas en la conexion");
+        $conexion=mysqli_connect($servidor,$usuario,$pass,$base) or die("Problemas en la conexion");
         $registros=mysqli_query($conexion,"SELECT * FROM usuarios where id=$id");  
 ?>
         <!DOCTYPE html>
@@ -144,7 +140,7 @@ function borraruno($id){
 
 <?php
     function mostrar(){
-    $conexion=mysqli_connect(SRV,USER,PASS,BASE) or die("Problemas en la conexion");
+    $conexion=mysqli_connect($servidor,$usuario,$pass,$base) or die("Problemas en la conexion");
     $registros=mysqli_query($conexion,"SELECT * FROM usuarios");  
     ?>
     <!DOCTYPE html>

@@ -3,10 +3,10 @@ include("../9-archivos/CargarArchivo.php");
 $mail=$_REQUEST['mail'];
 $contra=$_REQUEST['contra'];
 
-$servidor="localhost";
-$usuario="root";
-$pass="";
-$base="dinamica";
+$servidor="sql110.ezyro.com";
+$usuario="ezyro_43324187";
+$pass="bfe7d372d2";
+$base="ezyro_43324187_dinamica";
 $conexion=mysqli_connect($servidor,$usuario,$pass,$base) or die("Problemas en la conexion");
 
 //busca el usuario con el mail y contraseña exactos:
