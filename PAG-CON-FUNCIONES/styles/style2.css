@@ -18,6 +18,17 @@
     border-top-left-radius: 20px ;
     border-bottom-left-radius: 20px;
     background-color: rgb(122, 74, 190);
+
+    background-image: url('../img/G3.gif');
+
+    /* Hace que el GIF cubra toda la caja sin deformarse (puedes usar 'contain' si prefieres que se vea entero) */
+    background-size: cover; 
+
+    /* Evita que el GIF se repita como un mosaico */
+    background-repeat: no-repeat; 
+
+    /* Centra el GIF dentro de la caja */
+
 }
 
 #parte2{ 
