@@ -9,11 +9,11 @@ $cfondo = isset($_SESSION['cfondo']) ? $_SESSION['cfondo'] : '#de0000';
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Dibujos Geometricos</title>
     <link rel="stylesheet" href="../styles/style0.css">
     <link rel="stylesheet" href="../styles/style2.css">
     <link rel="stylesheet" href="../styles/style4.css">

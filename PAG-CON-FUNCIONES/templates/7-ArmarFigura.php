@@ -4,11 +4,11 @@ $cfig = isset($_GET['cfig']) ? $_GET['cfig'] : '#800080';
 $cfondo = isset($_GET['cfondo']) ? $_GET['cfondo'] : '#de0000';
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Armar</title>
     <link rel="stylesheet" href="../styles/style7.css">
     <link rel="stylesheet" href="../styles/style2.css">
     <link rel="stylesheet" href="../styles/style4.css"> 
