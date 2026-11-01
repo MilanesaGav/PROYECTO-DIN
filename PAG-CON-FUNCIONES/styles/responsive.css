@@ -7,7 +7,30 @@
 body {
     overflow-x: hidden;
     overflow-y: auto;
+     background: linear-gradient(90deg, rgba(242, 240, 242, 0.94) 0%, rgba(172, 127, 235, 0.84) 53%, rgb(197, 118, 243) 100%);
+    
+    /* Aumentamos un poco el tamaño para compactar las franjas un ~10% */
+    background-size: 330% 100%;
+    
+    /* Animación fluida de izquierda a derecha con efecto espejo */
+    animation: secuenciaDerecha 8s ease-in-out infinite;
+    
+    overflow: hidden;
 }
+
+/* Secuencia de espejo: 1-2-3 -> 3-2-1 -> 1-2-3 */
+@keyframes secuenciaDerecha {
+    0% {
+        background-position: 100% 50%;
+    }
+    50% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
 
 main {
     min-height: 100vh;
